@@ -2,193 +2,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Solutions | Pro Appointment Setter</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Professional Appointment System | USA Windows</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4f46e5;
-            --accent: #f59e0b;
-            --success: #10b981;
-            --dark-bg: #09090b;
-            --card-bg: #18181b;
-            --text-main: #f4f4f5;
-            --text-dim: #a1a1aa;
+            --bg: #0a0a0a;
+            --card: #171717;
+            --primary: #2563eb;
+            --accent: #fbbf24;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--dark-bg);
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg);
             color: var(--text-main);
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
+            padding: 30px 15px;
         }
 
-        .container {
-            width: 100%;
+        .main-container {
             max-width: 1100px;
-            background: var(--card-bg);
-            border: 1px solid #27272a;
-            border-radius: 24px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid #262626;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.7);
         }
 
-        /* Header Section */
-        header {
-            background: linear-gradient(90deg, var(--primary), #818cf8);
-            padding: 30px;
+        .header-section {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            padding: 40px;
             text-align: center;
+            border-bottom: 3px solid var(--accent);
         }
 
-        header h1 { margin: 0; font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
-        header p { margin: 10px 0 0; opacity: 0.9; font-weight: 500; }
+        .header-section h1 { margin: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 3px; }
+        .header-section p { margin-top: 10px; font-weight: 600; color: var(--accent); }
 
-        /* Main Content */
-        .content { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2px; background: #27272a; }
-        .section { background: var(--card-bg); padding: 30px; }
-
-        /* Script UI */
-        .step { margin-bottom: 30px; position: relative; }
-        .step-label { 
-            background: var(--primary); color: white; padding: 4px 12px; 
-            border-radius: 6px; font-size: 11px; font-weight: 800; display: inline-block; margin-bottom: 12px;
+        .dashboard-body {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 2px;
+            background: #262626;
         }
 
-        .dialogue-card {
+        .script-area, .sidebar-area {
+            background: var(--card);
+            padding: 35px;
+        }
+
+        .phase-box {
             background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.05);
+            border-left: 5px solid var(--primary);
             padding: 20px;
-            border-radius: 12px;
-            font-size: 17px;
-            line-height: 1.6;
-            color: #d4d4d8;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 25px;
+        }
+
+        .phase-label {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .dialogue-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #e2e8f0;
         }
 
         .highlight { color: var(--accent); font-weight: 700; }
-        .success-text { color: var(--success); font-weight: 600; }
 
-        /* Sidebar Tools */
-        .tool-box { margin-bottom: 25px; }
-        .tool-title { font-size: 14px; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: 15px; display: block; }
-        
-        .trust-badge {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid var(--success);
-            padding: 10px;
-            border-radius: 8px;
+        .info-card {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .info-card h4 { margin: 0 0 10px 0; color: var(--accent); font-size: 14px; text-transform: uppercase; }
+
+        .tag-list {
+            list-style: none;
+            padding: 0;
             font-size: 13px;
-            margin-bottom: 10px;
+            color: var(--text-muted);
         }
 
-        .objection-pill {
-            background: #27272a;
-            border: 1px solid #3f3f46;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            font-size: 13px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
+        .tag-list li { margin-bottom: 8px; display: flex; align-items: center; }
+        .tag-list li::before { content: "✓"; color: #10b981; margin-right: 10px; font-weight: bold; }
 
-        .objection-pill:hover { border-color: var(--primary); background: #323238; }
-
-        /* Footer */
-        .footer-banner {
-            background: #27272a;
-            padding: 15px;
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-dim);
-        }
-
-        .flex { display: flex; gap: 10px; }
-        .btn-confirm {
-            background: var(--success);
+        .btn-action {
+            width: 100%;
+            background: #10b981;
             color: white;
             border: none;
-            padding: 15px;
-            border-radius: 12px;
-            width: 100%;
+            padding: 18px;
+            border-radius: 10px;
             font-weight: 800;
-            cursor: pointer;
-            margin-top: 20px;
             text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 850px) {
+            .dashboard-body { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Prime Solutions Appointment Pro</h1>
-        <p>Premium Windows & Doors - USA Market Specialist</p>
-    </header>
-
-    <div class="content">
-        <div class="section">
-            <div class="step">
-                <span class="step-label">PHASE 1: THE DISCOVERY (THE GRAB)</span>
-                <div class="dialogue-card">
-                    "Hi, am I speaking with <strong>[Customer Name]</strong>? <br><br>
-                    Hi <strong>[Customer Name]</strong>, I'm [Your Name] with the <span class="highlight">Project Design Team</span> here at Prime Solutions. I’m reaching out because we’ve been authorized to provide <span class="highlight">2026 Energy-Efficiency Audits</span> for a few select homes on <strong>[Street Name]</strong>. <br><br>
-                    Just a quick question—are you still using your original windows, or have you already upgraded to the new <span class="success-text">Energy-Star Rated</span> glass?"
-                </div>
-            </div>
-
-            <div class="step">
-                <span class="step-label">PHASE 2: BUILDING THE FUTURE (THE TRUST)</span>
-                <div class="dialogue-card">
-                    "The reason I ask, sweetie, is that we aren't just selling windows; we’re helping your neighbors <strong>lock in their home value</strong>. <br><br>
-                    Our <span class="highlight">Senior Field Contractor</span> is in your area this week. He’s an expert who uses thermal technology to show you exactly where you're losing money on electricity. He’ll leave you with a <strong>'Price-Locked' quote</strong> that's guaranteed for a full year—no matter how much inflation goes up."
-                </div>
-            </div>
-
-            <div class="step">
-                <span class="step-label">PHASE 3: THE APPOINTMENT LOCK</span>
-                <div class="dialogue-card">
-                    "Since he's already right down the street on <strong>[Day]</strong>, it only takes 15 minutes for him to give you the roadmap for your home’s efficiency. <br><br>
-                    I have a slot open at <strong>[Time 1]</strong> or <strong>[Time 2]</strong>. Which one works better for you and your spouse to get that free information?"
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="tool-box">
-                <span class="tool-title">🛡️ Trust Boosters</span>
-                <div class="trust-badge">✅ BBB A+ Rated Company</div>
-                <div class="trust-badge">✅ Transferable Lifetime Warranty</div>
-                <div class="trust-badge">✅ 0% Interest Financing Available</div>
-            </div>
-
-            <div class="tool-box">
-                <span class="tool-title">⚡ Objection Killers</span>
-                <div class="objection-pill">
-                    <strong>"I'm too busy"</strong><br>
-                    "I hear you! That's why he's only there for 15 mins. Information is power—even if you don't use it today."
-                </div>
-                <div class="objection-pill">
-                    <strong>"I need to talk to my spouse"</strong><br>
-                    "Perfect! We actually require both homeowners to be present so everyone gets the same expert info at once."
-                </div>
-            </div>
-
-            <div class="tool-box">
-                <span class="tool-title">📝 Required Details</span>
-                <p style="font-size: 13px; color: var(--text-dim);">
-                    1. Confirm Address <br>
-                    2. Confirm Both Spouses <br>
-                    3. Mobile Number for SMS Alert
-                </p>
-                <button class="btn-confirm">Book Appointment</button>
-            </div>
-        </div>
+<div class="main-container">
+    <div class="header-section">
+        <h1>Window Solutions USA</h1>
+        <p>Premium Appointment Setting & Lead Generation Dashboard</p>
     </div>
 
-    <div class="footer-banner">
-        &copy; 2026 Prime Solutions | Developed for Premium Conversion & CX Excellence
+    <div class="dashboard-body">
+        <div class="script-area">
+            
+            <div class="phase-box">
+                <span class="phase-label">Phase 1: Professional Opening</span>
+                <div class="dialogue-text">
+                    "Hi, is this <strong>[Customer Name]</strong>? <br><br>
+                    This is [Your Name] calling from the <span class="highlight">Project Design Office</span>. We are reaching out to a few homeowners in <strong>[City]</strong> to provide a no-cost <span class="highlight">2026 Energy-Efficiency Assessment</span> for your windows and doors. Have you noticed any increase in your utility bills lately?"
+                </div>
+            </div>
+
+            <div class="step-box" style="margin-bottom: 25px;">
+                <span class="phase-label" style="color: var(--accent);">Phase 2: The Future-Proof Value</span>
+                <div class="dialogue-text" style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px;">
+                    "The reason for my call is to help you lock in <span class="highlight">Current Material Rates</span>. We are sending out a Senior Field Contractor to provide <strong>Free Written Estimates</strong> that are guaranteed for a full year. This allows you to have a precise budget in hand, protected against any future inflation, with absolutely no obligation."
+                </div>
+            </div>
+
+            <div class="phase-box" style="border-left-color: #10b981;">
+                <span class="phase-label" style="color: #10b981;">Phase 3: Appointment Confirmation</span>
+                <div class="dialogue-text">
+                    "Our Specialist will be on your street this <strong>[Day]</strong>. He’ll take exact measurements and leave you with a price-lock quote. Would <strong>[Time 1]</strong> work for you and your spouse, or is <strong>[Time 2]</strong> more convenient?"
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sidebar-area">
+            <div class="info-card">
+                <h4>🎯 Grab the Customer</h4>
+                <ul class="tag-list">
+                    <li>Mention 1-Year Price Guarantee</li>
+                    <li>Focus on "Energy Independence"</li>
+                    <li>Transferable Lifetime Warranty</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h4>🛡️ Build Instant Trust</h4>
+                <p style="font-size: 13px; line-height: 1.5; color: var(--text-muted);">
+                    Avoid sounding like a salesperson. Use terms like <strong>"Field Consultant"</strong> and <strong>"Structural Audit"</strong> to establish professional authority.
+                </p>
+            </div>
+
+            <div class="info-card" style="background: rgba(251, 191, 36, 0.05); border-color: var(--accent);">
+                <h4>📋 Verification Checklist</h4>
+                <p style="font-size: 12px; margin-bottom: 5px;">1. Confirm Full Name & Address</p>
+                <p style="font-size: 12px; margin-bottom: 5px;">2. Confirm Spouse Presence</p>
+                <p style="font-size: 12px; margin-bottom: 5px;">3. Set Expectations (15-20 Mins)</p>
+            </div>
+
+            <button class="btn-action">Lock Appointment</button>
+        </div>
     </div>
 </div>
 
