@@ -2,38 +2,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Appointment Dashboard | USA Windows 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Master Script Dashboard | Prime Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #4f46e5;
+            --secondary: #10b981;
             --accent: #f59e0b;
-            --success: #10b981;
-            --dark-bg: #09090b;
-            --card-bg: #111827;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
+            --dark: #0f172a;
+            --card: #1e293b;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
+            background-color: var(--dark);
+            color: #f8fafc;
             margin: 0;
             padding: 20px;
         }
 
-        .container {
+        .dashboard {
             max-width: 1200px;
             margin: 0 auto;
-            background: var(--card-bg);
-            border: 1px solid #374151;
+            background: var(--card);
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.6);
+            border: 1px solid #334155;
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5);
         }
 
-        /* Hero Header */
         header {
             background: linear-gradient(135deg, #312e81 0%, #4f46e5 100%);
             padding: 40px;
@@ -41,155 +38,146 @@
             border-bottom: 4px solid var(--accent);
         }
 
-        header h1 { margin: 0; font-size: 32px; font-weight: 800; letter-spacing: 2px; }
-        header p { margin: 10px 0 0; font-size: 18px; color: var(--accent); font-weight: 600; }
+        header h1 { margin: 0; font-size: 28px; text-transform: uppercase; letter-spacing: 2px; }
+        header p { color: var(--accent); margin-top: 5px; font-weight: 600; }
 
-        .main-content {
+        .content-grid {
             display: grid;
-            grid-template-columns: 1.8fr 1fr;
+            grid-template-columns: 1.6fr 1fr;
             gap: 2px;
-            background: #374151;
+            background: #334155;
         }
 
-        .column { background: var(--card-bg); padding: 40px; }
+        .main-column, .side-column { background: var(--card); padding: 30px; }
 
-        /* Script UI */
-        .script-block {
-            margin-bottom: 40px;
-            padding-left: 25px;
-            border-left: 5px solid var(--primary);
-            position: relative;
+        .step-box {
+            margin-bottom: 35px;
+            padding-left: 20px;
+            border-left: 4px solid var(--primary);
         }
 
-        .phase-label {
-            font-size: 12px;
+        .step-num {
+            background: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
             font-weight: 800;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            display: block;
+            display: inline-block;
+            margin-bottom: 10px;
         }
 
         .dialogue {
-            font-size: 20px;
-            line-height: 1.7;
-            color: #e5e7eb;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #e2e8f0;
         }
 
-        .highlight { color: var(--accent); font-weight: 700; border-bottom: 1px solid var(--accent); }
+        .highlight { color: var(--accent); font-weight: 700; }
 
-        /* Tool Cards */
-        .info-card {
-            background: #1f2937;
-            border: 1px solid #374151;
-            padding: 25px;
-            border-radius: 16px;
-            margin-bottom: 25px;
-        }
-
-        .info-card h4 { margin: 0 0 15px 0; color: var(--accent); font-size: 16px; text-transform: uppercase; }
-
-        .check-list { list-style: none; padding: 0; margin: 0; }
-        .check-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; font-size: 15px; }
-        .check-list li::before { content: "✓"; color: var(--success); font-weight: bold; }
-
-        .price-badge {
-            background: var(--success);
+        /* Sidebar Tools */
+        .tool-card {
+            background: rgba(15, 23, 42, 0.5);
             padding: 20px;
             border-radius: 12px;
-            text-align: center;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+
+        .tool-card h4 { color: var(--secondary); margin-top: 0; font-size: 14px; text-transform: uppercase; }
+
+        .btn-confirm {
+            background: var(--secondary);
+            color: white;
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
             font-weight: 800;
-            font-size: 18px;
+            cursor: pointer;
             margin-top: 20px;
         }
 
-        .footer {
-            background: #111827;
-            text-align: center;
-            padding: 20px;
-            font-size: 13px;
-            color: var(--text-muted);
-            border-top: 1px solid #374151;
+        .disclaimer {
+            font-size: 12px;
+            color: #94a3b8;
+            font-style: italic;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="dashboard">
     <header>
-        <h1>PREMIUM APPOINTMENT SETTING SYSTEM</h1>
-        <p>Zero-Cost Estimates • 12-Month Price Lock • USA Division</p>
+        <h1>USA Home Improvement Master Script</h1>
+        <p>12-Step Complete Customer Acquisition System</p>
     </header>
 
-    <div class="main-content">
-        <div class="column">
+    <div class="content-grid">
+        <div class="main-column">
             
-            <div class="script-block">
-                <span class="phase-label">Phase 1: The Professional Greeting</span>
+            <div class="step-box">
+                <span class="step-num">STEP 1 - 2</span>
                 <div class="dialogue">
-                    "Hi, am I speaking with <strong>[Customer Name]</strong>? <br><br>
-                    Hi, this is [Your Name] from the <span class="highlight">Project Assessment Team</span>. I'm reaching out because we are currently helping homeowners in <strong>[City]</strong> secure their <span class="highlight">2026 Home Efficiency Rebates</span>. <br><br>
-                    I wanted to see if you have already received your <strong>Free Windows & Energy Audit</strong> for the year, or are you still working with the original builder-grade windows?"
+                    "Hi, this is [Name] calling regarding home improvement services in your area. How are you today? <br><br>
+                    We're offering <span class="highlight">free window estimates</span> for homeowners looking to upgrade. Just to make sure—are you the <strong>homeowner</strong> of this property?"
                 </div>
             </div>
 
-            <div class="script-block" style="border-left-color: var(--accent);">
-                <span class="phase-label">Phase 2: The Future Value Grab</span>
+            <div class="step-box" style="border-left-color: var(--secondary);">
+                <span class="step-num">STEP 3 - 5</span>
                 <div class="dialogue">
-                    "The reason I’m calling is that material costs are projected to rise significantly. We are providing a <span class="highlight">Written Labor & Material Estimate</span> that is <strong>valid for 1 full year</strong>. <br><br>
-                    It costs you absolutely nothing, but it gives you a <span class="highlight">Price-Lock Guarantee</span>. This way, even if you aren't ready to upgrade today, you’re protected against next year's inflation. It's a great tool to have for your home records."
+                    "Great! To give you an accurate estimate, roughly <strong>how many windows</strong> are you looking at? Around 5 to 10, or more than that? <br><br>
+                    And for the report, do you prefer <span class="highlight">Sliding, Casement, or Aluminum</span> windows? <br><br>
+                    Perfect. To verify local rates, may I have your <strong>ZIP code</strong> and confirm you are <strong>over 21</strong> for financing options?"
                 </div>
             </div>
 
-            <div class="script-block" style="border-left-color: var(--success);">
-                <span class="phase-label">Phase 3: The Expert Appointment</span>
+            <div class="step-box" style="border-left-color: var(--accent);">
+                <span class="step-num">STEP 6 - 9</span>
                 <div class="dialogue">
-                    "Our <strong>Senior Field Consultant</strong> will be on your street this <strong>[Day]</strong>. He’ll take exact measurements and leave you with that 12-month guaranteed quote—no obligation at all. <br><br>
-                    Does <strong>[Time 1]</strong> work for you and your spouse, or is <strong>[Time 2]</strong> a better time to grab that free information?"
+                    "To match you with the 2026 incentives, what is your <strong>Date of Birth</strong>? <br><br>
+                    Are you looking to start this project <span class="highlight">this month or in 90 days</span>? And have you received any other estimates lately? <br><br>
+                    For our <strong>0% down financing</strong>, where does your credit sit? Most people check their banking app real quick—I’ll stay on the line for a second while you grab that range."
+                </div>
+            </div>
+
+            <div class="step-box" style="border-left-color: #ef4444;">
+                <span class="step-num">STEP 10 - 12</span>
+                <div class="dialogue">
+                    "Last thing—have you had any <strong>mortgage modifications</strong> recently? <br><br>
+                    Perfect. Let’s get your <strong>Full Name and Address</strong>. You’re all set! Our specialist will visit to provide that <span class="highlight">free, no-obligation estimate</span>. Do mornings or evenings work best for you?"
                 </div>
             </div>
 
         </div>
 
-        <div class="column">
-            <div class="info-card">
-                <h4>🎯 Why This Grabs Customers</h4>
-                <ul class="check-list">
-                    <li><strong>No Pressure:</strong> They get info, but don't have to buy.</li>
-                    <li><strong>Asset Building:</strong> A written quote is an asset for home records.</li>
-                    <li><strong>Financial Safety:</strong> "Price Lock" protects them from inflation.</li>
-                    <li><strong>Expert Tone:</strong> We sound like advisors, not salesmen.</li>
+        <div class="side-column">
+            <div class="tool-card">
+                <h4>🎯 The "Grab" Logic</h4>
+                <ul style="padding-left: 20px; font-size: 14px; color: #cbd5e1;">
+                    <li><strong>No Cost:</strong> Free future planning.</li>
+                    <li><strong>No Obligation:</strong> Zero pressure.</li>
+                    <li><strong>Inflation Protection:</strong> Lock today's price.</li>
                 </ul>
             </div>
 
-            <div class="info-card" style="border-color: var(--primary);">
-                <h4>🛡️ Trusted Power Phrases</h4>
-                <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted);">
-                    Replace "Sales" words with "Expert" words: <br><br>
-                    • Use <span class="highlight">"Energy Audit"</span> instead of "Sales Pitch"<br>
-                    • Use <span class="highlight">"Project Designer"</span> instead of "Sales Rep"<br>
-                    • Use <span class="highlight">"Labor & Material Report"</span> instead of "Price Quote"
-                </p>
+            <div class="tool-card" style="border-color: var(--primary);">
+                <h4>📋 Disclaimer (Official)</h4>
+                <div class="disclaimer">
+                    "One of our specialists will call you back shortly to finalize. By confirming, you agree to this call even if you are on a <strong>Do Not Call List</strong>."
+                </div>
             </div>
 
-            <div class="price-badge">
-                12-MONTH PRICE LOCK INCLUDED
+            <div class="tool-card">
+                <h4>🛠️ Quick Handling</h4>
+                <p style="font-size: 13px;">If they say <strong>"I'm busy"</strong>:<br>
+                <em>"I understand! That's why it's just a 15-min price-lock report for your future records."</em></p>
             </div>
 
-            <div class="info-card" style="margin-top: 25px; background: rgba(16, 185, 129, 0.05);">
-                <h4>📋 Pre-Appointment Checklist</h4>
-                <ul class="check-list" style="font-size: 13px;">
-                    <li>Confirm BOTH spouses will be present.</li>
-                    <li>Explain the visit takes only 15-20 mins.</li>
-                    <li>Ask if they have any specific drafty areas.</li>
-                </ul>
-            </div>
+            <button class="btn-confirm">SUBMIT LEAD</button>
         </div>
-    </div>
-
-    <div class="footer">
-        CONFIDENTIAL INTERNAL USE ONLY • PRIME SOLUTIONS STRATEGY • 2026
     </div>
 </div>
 
