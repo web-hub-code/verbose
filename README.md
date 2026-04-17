@@ -2,203 +2,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Window Script | Prime Solutions</title>
+    <title>Contractor Appointment Script | Prime Solutions</title>
     <style>
         :root {
-            --primary-color: #1a73e8;
-            --secondary-color: #34a853;
-            --dark-bg: #0f172a;
-            --text-light: #f8fafc;
-            --accent-gold: #fbbf24;
+            --glass: rgba(255, 255, 255, 0.2);
+            --primary: #2563eb;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --dark: #1e293b;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f1f5f9;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f1f5f9;
             margin: 0;
             padding: 20px;
-            color: #1e293b;
+            display: flex;
+            justify-content: center;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-        }
-
-        header {
-            background: var(--dark-bg);
-            color: white;
+        .dashboard {
+            width: 100%;
+            max-width: 1000px;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
             padding: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+
+        .header {
             text-align: center;
-            border-bottom: 4px solid var(--primary-color);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 24pt;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        header p {
-            color: var(--accent-gold);
-            margin-top: 10px;
-            font-weight: 600;
-        }
-
-        .script-section {
-            padding: 40px;
-        }
-
-        .step-box {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
             margin-bottom: 30px;
-            padding: 25px;
-            border-left: 5px solid var(--primary-color);
-            background: #f8fafc;
-            border-radius: 0 10px 10px 0;
-            transition: transform 0.3s ease;
         }
 
-        .step-box:hover {
-            transform: translateX(10px);
-            background: #ffffff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .step-title {
-            font-weight: bold;
-            color: var(--primary-color);
+        .header h1 {
+            color: var(--accent);
+            margin: 0;
+            font-size: 28px;
             text-transform: uppercase;
-            font-size: 12pt;
-            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .badge {
+            background: var(--success);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .script-card {
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 6px solid var(--primary);
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 15px;
             display: block;
         }
 
-        .dialogue {
-            font-size: 13pt;
+        .dialogue-box {
+            font-size: 17px;
             line-height: 1.6;
-            color: #334155;
+            margin-bottom: 25px;
         }
 
-        .highlight {
-            background: #fef9c3;
-            padding: 2px 5px;
-            border-radius: 4px;
+        .highlight-yellow {
+            color: #fde047;
             font-weight: 600;
-            color: #854d0e;
         }
 
-        .objection-handler {
-            background: #fff1f2;
-            border: 1px solid #fecdd3;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 40px;
-        }
-
-        .objection-handler h3 {
-            color: #be123c;
-            margin-top: 0;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #fda4af;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 10pt;
-            color: #94a3b8;
-            background: #f8fafc;
-        }
-
-        .trusted-badge {
-            display: inline-block;
-            background: var(--secondary-color);
+        .action-btn {
+            background: var(--primary);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 9pt;
-            margin-bottom: 15px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .action-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .side-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .info-card {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 14px;
+        }
+
+        .info-card h4 {
+            margin: 0 0 10px 0;
+            color: var(--accent);
+        }
+
+        .status-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #475569;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        .pro-tip {
+            border: 1px dashed var(--accent);
+            padding: 10px;
+            font-style: italic;
+            color: #cbd5e1;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Window Replacement Expert Script</h1>
-            <p>USA Market - High Conversion Edition</p>
-        </header>
+<div class="dashboard">
+    <div class="header">
+        <span class="badge">LIVE CAMPAIGN: WINDOWS USA 2026</span>
+        <h1>Contractor Booking System</h1>
+    </div>
 
-        <div class="script-section">
-            
-            <div class="step-box">
-                <span class="step-title">Step 1: The Trust Hook</span>
-                <div class="dialogue">
-                    "Hi, is this <strong>[Customer Name]</strong>? <br><br>
-                    Hi, I'm <strong>[Your Name]</strong> calling from <span class="highlight">Prime Solutions</span>. I'm calling because we just finished a project for your neighbors in <strong>[City]</strong>, and we're extending a special <strong>State Energy Rebate</strong> offer to your street today. How are you doing?"
+    <div class="grid-layout">
+        <div class="main-content">
+            <div class="script-card">
+                <span class="section-title">PHASE 1: THE DISCOVERY</span>
+                <div class="dialogue-box">
+                    "Hi, this is <strong>[Your Name]</strong> calling from the <strong>Project Design Team</strong>. We’re reaching out because we have a Senior Windows Contractor in <strong>[City Name]</strong> doing energy audits this week. <br><br>
+                    Quick question, sweetie—are your current windows the original ones that came with the house, or have you upgraded them to <span class="highlight-yellow">High-Efficiency glass</span> yet?"
                 </div>
-            </div>
 
-            <div class="step-box">
-                <span class="step-title">Step 2: The Value (Why Now?)</span>
-                <div class="dialogue">
-                    "Most of the homes in your area were built with standard windows that leak heat, causing high electricity bills. We are helping homeowners upgrade to <strong>Energy Star Rated</strong> windows that can cut your cooling costs by up to <strong>30%</strong>. Have you noticed your AC running more than usual lately?"
+                <span class="section-title">PHASE 2: THE HOOK (Why Meet the Contractor?)</span>
+                <div class="dialogue-box">
+                    "The reason I ask is that our contractor is showing homeowners how to lock in <span class="highlight-yellow">2026 Tax Credits</span>. He’s not a salesman—he’s the technical expert who actually does the measurements and checks for seal failure. He’ll show you exactly how to stop your money from flying out of the window!"
                 </div>
-            </div>
 
-            <div class="step-box" style="border-left-color: var(--secondary-color);">
-                <span class="step-title">Step 3: Social Proof & Warranty</span>
-                <div class="dialogue">
-                    "What makes us different, sweetie, is our <strong>Transferable Lifetime Warranty</strong>. It covers everything from glass breakage to seal failure. We are currently the top-rated provider in <strong>[State]</strong> for durability and curb appeal."
+                <span class="section-title">PHASE 3: THE APPOINTMENT SET (The Close)</span>
+                <div class="dialogue-box">
+                    "He’s going to be on your street this <strong>Thursday</strong>. It takes him exactly 15 minutes to give you a 'Price-Locked' estimate. <br><br>
+                    Should I put you down for the <strong>[Time 1]</strong> slot, or would <strong>[Time 2]</strong> be more convenient for you and your spouse?"
                 </div>
+                
+                <button class="action-btn">CONFIRM APPOINTMENT</button>
             </div>
-
-            <div class="step-box">
-                <span class="step-title">Step 4: The Soft Close</span>
-                <div class="dialogue">
-                    "We have a specialist in your zip code this <strong>[Day]</strong> and <strong>[Day]</strong>. He can stop by for 10 minutes, give you an exact measurement, and a price-lock quote that’s good for a whole year. No pressure at all. <br><br>
-                    Does <strong>4:00 PM</strong> work for you, or is <strong>6:00 PM</strong> better?"
-                </div>
-            </div>
-
-            <div class="objection-handler">
-                <h3>Quick Counter-Answers (Trust Builders)</h3>
-                <div class="grid">
-                    <div class="card">
-                        <strong>"Not Interested"</strong><br>
-                        "I understand! Most people aren't looking until they see how much they can save. Why not just get the info while the rebate is active?"
-                    </div>
-                    <div class="card">
-                        <strong>"Price Question"</strong><br>
-                        "We have 0% financing options that usually cost less per month than what you save on your energy bill!"
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-        <div class="footer">
-            &copy; 2026 Prime Solutions Dashboard | Designed for Professional Excellence
+        <div class="side-panel">
+            <div class="info-card">
+                <h4>🎯 Key Selling Points</h4>
+                <ul>
+                    <li>Lifetime Warranty</li>
+                    <li>0% Down Financing</li>
+                    <li>Energy Star Certified</li>
+                </ul>
+            </div>
+
+            <div class="info-card pro-tip">
+                <strong>💡 Pro-Tip:</strong> Use the word "Expert" instead of "Salesman". People love experts but hate being sold to.
+            </div>
+
+            <div class="info-card">
+                <h4>🛡️ Handling No's</h4>
+                <p>"I understand! That's why the contractor gives you a <strong>Written Estimate</strong> that stays valid for 1 full year. No pressure to buy today."</p>
+                <span class="status-tag">Trust Builder</span>
+            </div>
         </div>
     </div>
+</div>
 
 </body>
 </html>
