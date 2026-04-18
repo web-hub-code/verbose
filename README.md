@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Solutions | Elite Script OS</title>
+    <title>Prime Solutions | Elite Lead OS</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -10,65 +10,85 @@
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #f43f5e;
-            --bg-dark: #020617;
-            --panel: #0f172a;
-            --glass: rgba(255, 255, 255, 0.05);
+            --bg: #020617;
+            --card: #0f172a;
+            --border: rgba(255,255,255,0.1);
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-dark);
+            background-color: var(--bg);
             color: #f1f5f9;
             margin: 0;
             padding: 20px;
         }
 
-        .container {
-            max-width: 1450px;
+        .master-wrapper {
+            max-width: 1400px;
             margin: 0 auto;
-            background: var(--panel);
-            border: 1px solid #1e293b;
+            background: var(--card);
             border-radius: 40px;
+            border: 1px solid var(--border);
             overflow: hidden;
-            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.8);
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.9);
         }
 
         /* Agency Branding Header */
         header {
             background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%);
-            padding: 60px 40px;
+            padding: 40px;
             text-align: center;
-            border-bottom: 4px solid var(--warning);
+            border-bottom: 5px solid var(--warning);
         }
 
-        header h1 { margin: 0; font-size: 45px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; }
-        .agency-tag { color: var(--warning); font-weight: 600; font-size: 14px; letter-spacing: 2px; display: block; margin-top: 5px; }
-        
-        .nav-links { margin-top: 25px; display: flex; justify-content: center; gap: 15px; }
-        .nav-links a { 
-            background: var(--glass); color: white; padding: 10px 25px; 
-            border-radius: 50px; text-decoration: none; font-size: 13px; font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.3s;
+        header h1 { margin: 0; font-size: 42px; font-weight: 800; letter-spacing: 4px; }
+        .links { margin-top: 15px; }
+        .links a { 
+            color: var(--warning); text-decoration: none; font-size: 13px; font-weight: 600; 
+            padding: 8px 20px; border: 1px solid var(--warning); border-radius: 50px; margin: 0 5px;
+            transition: 0.3s;
         }
-        .nav-links a:hover { background: white; color: black; }
+        .links a:hover { background: var(--warning); color: #000; }
 
-        .dashboard {
+        /* Dynamic Input Bar */
+        .var-bar {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 20px 40px;
+            display: flex;
+            gap: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .var-bar input {
+            background: #020617;
+            border: 1px solid #334155;
+            padding: 12px;
+            color: white;
+            border-radius: 10px;
+            flex: 1;
+            outline: none;
+        }
+
+        .var-bar input:focus { border-color: var(--primary); }
+
+        .main-grid {
             display: grid;
             grid-template-columns: 1.8fr 1fr;
             gap: 2px;
-            background: #1e293b;
+            background: var(--border);
         }
 
-        .panel { background: var(--panel); padding: 50px; }
+        .panel { background: var(--card); padding: 40px; }
 
-        /* The 12-Step Script Flow */
-        .step-card {
+        /* Step Styling */
+        .step-block {
             margin-bottom: 45px;
-            padding-left: 30px;
-            border-left: 6px solid var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 25px;
+            position: relative;
         }
 
-        .step-label {
+        .step-badge {
             background: var(--primary);
             color: white;
             padding: 5px 15px;
@@ -81,143 +101,175 @@
         }
 
         .dialogue { font-size: 21px; line-height: 1.8; color: #e2e8f0; }
-        .hl { color: var(--warning); font-weight: 800; text-decoration: underline; }
+        .hl { color: var(--warning); font-weight: 800; }
 
-        /* Rebuttals & Tools */
-        .card {
-            background: rgba(2, 6, 23, 0.5);
-            border: 1px solid #334155;
-            padding: 30px;
-            border-radius: 25px;
-            margin-bottom: 30px;
+        /* Action Buttons */
+        .copy-btn {
+            margin-top: 15px;
+            background: var(--glass);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700;
         }
 
-        .card h4 { color: var(--success); margin: 0 0 20px 0; text-transform: uppercase; font-size: 14px; }
+        .copy-btn:hover { background: var(--primary); color: white; }
 
-        .rebuttal-box {
+        /* Sidebar Rebuttals (Clickable) */
+        .rebuttal-card {
             background: #020617;
-            padding: 18px;
+            border: 1px solid #1e293b;
+            padding: 15px;
             border-radius: 15px;
             margin-bottom: 15px;
-            border-left: 4px solid var(--danger);
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        .rebuttal-box strong { color: var(--danger); font-size: 13px; display: block; margin-bottom: 8px; }
-        .rebuttal-box p { font-size: 15px; color: #94a3b8; margin: 0; line-height: 1.5; }
+        .rebuttal-card:hover { border-color: var(--danger); }
+        .rebuttal-card strong { color: var(--danger); font-size: 13px; display: block; margin-bottom: 5px; }
+        .rebuttal-card p { font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.5; }
 
-        .action-btn {
+        .submit-btn {
             background: var(--success);
             color: white;
             width: 100%;
-            border: none;
             padding: 25px;
+            border: none;
             border-radius: 20px;
             font-weight: 900;
             font-size: 18px;
             cursor: pointer;
             text-transform: uppercase;
-            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
-            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+            margin-top: 20px;
         }
 
         footer {
-            background: #020617;
-            padding: 40px;
             text-align: center;
-            border-top: 1px solid #1e293b;
+            padding: 40px;
+            background: #020617;
+            font-size: 13px;
+            color: #475569;
         }
-
-        .footer-brand { font-size: 13px; color: #64748b; line-height: 2; }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="master-wrapper">
     <header>
         <h1>PRIME SOLUTIONS</h1>
-        <span class="agency-tag">PREMIUM WEB & BRANDING AGENCY</span>
-        <div class="nav-links">
+        <div class="links">
             <a href="https://web-hub-code.github.io/PRIMESOLUTIONS/" target="_blank">Agency Portfolio</a>
-            <a href="https://web-hub-code.github.io/script/" target="_blank">Live Script Portal</a>
+            <a href="https://web-hub-code.github.io/script/" target="_blank">User Script Hub</a>
         </div>
     </header>
 
-    <div class="dashboard">
+    <div class="var-bar">
+        <input type="text" id="custName" placeholder="Customer Name..." onkeyup="updateVars()">
+        <input type="text" id="cityName" placeholder="City Name..." onkeyup="updateVars()">
+        <input type="text" id="agentName" placeholder="Your Name..." onkeyup="updateVars()">
+    </div>
+
+    <div class="main-grid">
         <div class="panel">
             
-            <div class="step-card">
-                <span class="step-label">Step 1-3: The Introduction</span>
-                <div class="dialogue">
-                    "Hi, I'm [Name] from <strong>Prime Solutions</strong>. How are you? <br><br>
-                    We’re helping homeowners verify their <span class="hl">2026 Energy Rebates</span>. Are you the <strong>homeowner</strong>? <br><br>
-                    Perfect! About how many windows—<strong>5 to 10</strong> or more? And do you like <strong>Sliding or Casement</strong>?"
+            <div class="step-block">
+                <span class="step-badge">Step 1-3: Intro & Verification</span>
+                <div class="dialogue" id="s1">
+                    "Hi, this is <span class="hl agent">Agent</span> from <strong>Prime Solutions</strong>. How are you today? <br><br>
+                    We’re verifying homeowners in <span class="hl city">Your City</span> for the <span class="hl">2026 Home Energy Credits</span>. Are you the <strong>homeowner</strong>? <br><br>
+                    Great! How many windows are we looking at—<strong>5 to 10</strong> or more?"
                 </div>
+                <button class="copy-btn" onclick="copyText('s1')">CLICK TO COPY DIALOGUE</button>
             </div>
 
-            <div class="step-card" style="border-left-color: var(--warning);">
-                <span class="step-label">Step 4-6: Qualification</span>
-                <div class="dialogue">
-                    "To check local county credits, what is your <strong>ZIP code</strong>? <br><br>
-                    And for state eligibility, may I have your <strong>Date of Birth</strong>? This ensures you get the <span class="hl">Senior or Veteran discounts</span> available."
+            <div class="step-block" style="border-left-color: var(--warning);">
+                <span class="step-badge">Step 4-6: Rebate Data</span>
+                <div class="dialogue" id="s2">
+                    "To check the exact rebate for your street, what is your <strong>ZIP code</strong>? <br><br>
+                    And for the record, what is your <strong>Date of Birth</strong>? This is strictly to apply <span class="hl">Senior or Military discounts</span> to your estimate."
                 </div>
+                <button class="copy-btn" onclick="copyText('s2')">CLICK TO COPY DIALOGUE</button>
             </div>
 
-            <div class="step-card" style="border-left-color: var(--success);">
-                <span class="step-label">Step 7-10: Financing Hook</span>
-                <div class="dialogue">
-                    "Planning for this month? For our <span class="hl">0% Interest & No-Down-Payment</span> plans, what's your credit range? Check your banking app—I'll hold. <br><br>
-                    Lastly, any <strong>mortgage modifications</strong> recently?"
+            <div class="step-block" style="border-left-color: var(--success);">
+                <span class="step-badge">Step 7-10: Credit & Financing</span>
+                <div class="dialogue" id="s3">
+                    "For our <span class="hl">0% interest plans</span>, what range is your credit score in? Most people check their banking app—I'll wait. <br><br>
+                    Lastly, any <strong>mortgage modifications</strong> in the last 2 years?"
                 </div>
+                <button class="copy-btn" onclick="copyText('s3')">CLICK TO COPY DIALOGUE</button>
             </div>
 
-            <div class="step-card" style="border-left-color: var(--danger);">
-                <span class="step-label">Step 11-12: The Close</span>
-                <div class="dialogue">
-                    "Great! Confirm your <strong>Full Name and Address</strong>. <br><br>
-                    Our specialist will visit for a <span class="hl">Free 12-Month Price-Locked Estimate</span>. Do <strong>mornings or evenings</strong> work for you and your spouse?"
+            <div class="step-block" style="border-left-color: var(--danger);">
+                <span class="step-badge">Step 11-12: The 12-Month Lock</span>
+                <div class="dialogue" id="s4">
+                    "Perfect, <span class="hl name">Customer</span>. Confirm your address. <br><br>
+                    Our expert will visit for a <span class="hl">Free 12-Month Price-Locked Report</span>. Do mornings or evenings work for you and your spouse?"
                 </div>
+                <button class="copy-btn" onclick="copyText('s4')">CLICK TO COPY DIALOGUE</button>
             </div>
 
         </div>
 
-        <div class="panel" style="border-left: 1px solid #1e293b;">
-            <div class="card">
-                <h4>🎯 Live Rebuttals</h4>
-                <div class="rebuttal-box">
-                    <strong>"Why do you need my ZIP?"</strong>
-                    <p>"Rebates are location-specific. Your ZIP ensures Prime Solutions calculates the exact credits for your street."</p>
-                </div>
-                <div class="rebuttal-box">
-                    <strong>"Why both spouses?"</strong>
-                    <p>"The quote is a legal 12-month price guarantee. We need both owners present to finalize the data together."</p>
-                </div>
-                <div class="rebuttal-box">
-                    <strong>"Is this a sales call?"</strong>
-                    <p>"This is a technical assessment. We provide the data and price-lock; you decide when you're ready."</p>
-                </div>
+        <div class="panel" style="border-left: 1px solid var(--border);">
+            <h4 style="color: var(--success); margin-top: 0; font-size: 14px;">LIVE REBUTTAL ENGINE</h4>
+            
+            <div class="rebuttal-card">
+                <strong>"Why do you need my ZIP?"</strong>
+                <p>"Rebates are county-specific. Your ZIP ensures we find the exact local credits for your area."</p>
             </div>
 
-            <div class="card" style="border-color: var(--primary);">
-                <h4>🚀 Agency Success Tips</h4>
-                <p style="font-size: 13px; color: #94a3b8; line-height: 1.8;">
-                    • Build trust using the <strong>Prime Solutions</strong> brand name.<br>
-                    • Use the <strong>"12-Month Price Lock"</strong> as your strongest hook.<br>
-                    • Treat every lead as a <strong>"Technical Audit."</strong>
-                </p>
+            <div class="rebuttal-card">
+                <strong>"Why both spouses?"</strong>
+                <p>"The quote is a legal 12-month price-lock. We need both owners to receive the data together."</p>
             </div>
 
-            <button class="action-btn">Lock Final Appointment</button>
+            <div class="rebuttal-card">
+                <strong>"Is this a sales call?"</strong>
+                <p>"This is a technical assessment for the rebate. We provide the price-locked data, you decide when to use it."</p>
+            </div>
+
+            <div style="background: rgba(99, 102, 241, 0.1); padding: 20px; border-radius: 15px; margin-top: 20px;">
+                <h4 style="margin:0; font-size:12px; color: var(--primary);">PRO TIPS:</h4>
+                <ul style="font-size: 13px; color: #94a3b8; padding-left: 20px; line-height: 1.8;">
+                    <li>Call it a <b>"Technical Audit."</b></li>
+                    <li>Always confirm <b>Homeowner</b> status.</li>
+                    <li>Maintain high energy!</li>
+                </ul>
+            </div>
+
+            <button class="submit-btn">Lock Certified Lead</button>
         </div>
     </div>
 
     <footer>
-        <div class="footer-brand">
-            <strong>PRIME SOLUTIONS AGENCY</strong> | Premium Web Development & Lead Generation<br>
-            <a href="https://web-hub-code.github.io/PRIMESOLUTIONS/" style="color:var(--primary); text-decoration:none;">Visit Portfolio</a> • 
-            <a href="https://web-hub-code.github.io/script/" style="color:var(--primary); text-decoration:none;">User Script Hub</a>
-        </div>
+        <strong>PRIME SOLUTIONS AGENCY</strong> | Premium Branding & Lead Generation OS © 2026<br>
+        Proprietary System for Call Centers & High-Ticket Sales
     </footer>
 </div>
+
+<script>
+    function updateVars() {
+        let name = document.getElementById('custName').value || "Customer";
+        let city = document.getElementById('cityName').value || "Your City";
+        let agent = document.getElementById('agentName').value || "Agent";
+
+        document.querySelectorAll('.name').forEach(el => el.innerText = name);
+        document.querySelectorAll('.city').forEach(el => el.innerText = city);
+        document.querySelectorAll('.agent').forEach(el => el.innerText = agent);
+    }
+
+    function copyText(id) {
+        let text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text);
+        alert("Dialogue Copied to Clipboard!");
+    }
+</script>
 
 </body>
 </html>
