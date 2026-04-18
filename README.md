@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Solutions | Elite Lead OS</title>
+    <title>Prime Solutions | Elite Master Lead OS</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,12 +11,12 @@
             --warning: #f59e0b;
             --danger: #f43f5e;
             --bg: #030712;
-            --panel: #0f172a;
+            --card: #0f172a;
             --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(255, 255, 255, 0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: 0.3s ease; }
         
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -24,20 +24,9 @@
             color: #f1f5f9;
             min-height: 100vh;
             padding: 20px;
-            line-height: 1.6;
         }
 
-        /* Premium Animations */
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(99, 102, 241, 0); } 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); } }
-
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            animation: slideUp 0.8s ease-out;
-        }
-
-        /* Glass Header */
+        /* Premium Header */
         header {
             background: var(--glass);
             backdrop-filter: blur(25px);
@@ -50,64 +39,65 @@
         }
 
         header h1 {
-            font-size: 55px; font-weight: 800; letter-spacing: 8px;
-            background: linear-gradient(to right, #fff, #6366f1, #a855f7);
+            font-size: 50px; font-weight: 800; letter-spacing: 8px;
+            background: linear-gradient(to right, #fff, var(--primary), #a855f7);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-transform: uppercase; margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
-        .live-status {
+        .portal-badge {
             display: inline-flex; align-items: center; gap: 8px;
             background: rgba(16, 185, 129, 0.1); color: var(--success);
-            padding: 8px 20px; border-radius: 50px; font-size: 12px;
+            padding: 8px 25px; border-radius: 50px; font-size: 12px;
             font-weight: 700; border: 1px solid var(--success);
+            margin-bottom: 20px;
         }
 
-        .dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; animation: pulseGlow 2s infinite; }
-
-        /* Variable Inputs */
-        .input-center {
+        /* Agent Input Hub */
+        .input-hub {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 30px; max-width: 1500px; margin-inline: auto;
         }
 
-        .input-center input {
+        .input-hub input {
             background: #020617; border: 1px solid var(--border);
             padding: 18px; color: white; border-radius: 15px;
             font-family: 'JetBrains Mono', monospace; outline: none;
-            transition: 0.3s;
         }
 
-        .input-center input:focus { border-color: var(--primary); background: #0f172a; }
+        .input-hub input:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(99, 102, 241, 0.2); }
 
-        /* 12-Step Master Flow */
+        /* Main Grid Layout */
         .workspace {
             display: grid; grid-template-columns: 1.8fr 1fr; gap: 30px;
+            max-width: 1600px; margin: 0 auto;
         }
 
         .script-panel {
-            background: var(--panel); border-radius: 40px;
+            background: var(--card); border-radius: 40px;
             border: 1px solid var(--border); padding: 50px;
         }
 
+        /* Step Logic Styling */
         .step-block {
             margin-bottom: 60px; padding-left: 35px;
             border-left: 5px solid var(--primary);
             position: relative;
+            animation: fadeIn 0.6s ease-out;
         }
 
         .step-tag {
             background: var(--primary); color: white;
-            padding: 5px 15px; border-radius: 8px;
+            padding: 6px 16px; border-radius: 8px;
             font-size: 11px; font-weight: 800; text-transform: uppercase;
             margin-bottom: 20px; display: inline-block;
         }
 
-        .dialogue { font-size: 24px; font-weight: 400; color: #e2e8f0; }
+        .dialogue { font-size: 24px; line-height: 1.8; color: #e2e8f0; }
         .hl { color: var(--warning); font-weight: 800; border-bottom: 2px solid var(--warning); }
-        .cx-hook { color: var(--success); font-weight: 600; display: block; margin-top: 15px; font-size: 16px; }
+        .benefit-hook { color: var(--success); font-weight: 600; display: block; margin-top: 20px; font-size: 16px; }
 
-        /* Tools & Rebuttals */
+        /* Rebuttals & Sidebar */
         .sidebar { display: flex; flex-direction: column; gap: 25px; }
 
         .tool-card {
@@ -115,34 +105,36 @@
             border-radius: 30px; padding: 35px;
         }
 
-        .rebuttal-box {
+        .rebuttal-pill {
             background: #020617; border-radius: 20px; padding: 25px;
             margin-bottom: 15px; border-left: 4px solid var(--danger);
-            cursor: pointer; transition: 0.3s;
+            cursor: pointer;
         }
 
-        .rebuttal-box:hover { transform: translateX(10px); background: #1e1b4b; }
-        .rebuttal-box strong { color: var(--danger); font-size: 13px; text-transform: uppercase; display: block; margin-bottom: 8px; }
-        .rebuttal-box p { font-size: 15px; color: #94a3b8; margin: 0; }
+        .rebuttal-pill:hover { transform: translateX(10px); background: #1e1b4b; }
+        .rebuttal-pill strong { color: var(--danger); font-size: 13px; text-transform: uppercase; display: block; margin-bottom: 8px; }
+        .rebuttal-pill p { font-size: 15px; color: #94a3b8; margin: 0; line-height: 1.6; }
 
-        .action-btn {
+        /* Timeline Selector */
+        .time-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .time-btn {
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+            color: #fff; padding: 12px; border-radius: 12px; font-size: 12px;
+            font-weight: 600; cursor: pointer; text-align: center;
+        }
+        .time-btn:hover { background: var(--primary); }
+
+        .submit-lead {
             background: linear-gradient(135deg, var(--success), #059669);
             color: white; border: none; width: 100%;
             padding: 25px; border-radius: 22px; font-weight: 900;
             font-size: 20px; text-transform: uppercase; cursor: pointer;
             box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
-            transition: 0.3s;
         }
 
-        .action-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(16, 185, 129, 0.4); }
+        .submit-lead:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(16, 185, 129, 0.4); }
 
-        /* Copy Button */
-        .copy-trigger {
-            margin-top: 20px; background: rgba(255,255,255,0.05);
-            border: 1px solid var(--primary); color: var(--primary);
-            padding: 10px 20px; border-radius: 12px; cursor: pointer;
-            font-weight: 700; font-size: 12px;
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         footer { text-align: center; padding: 60px; opacity: 0.4; font-size: 12px; letter-spacing: 2px; }
     </style>
@@ -151,14 +143,12 @@
 
 <div class="container">
     <header>
-        <div class="live-status"><span class="dot"></span> SECURE AGENT PORTAL ACTIVE</div>
+        <div class="portal-badge">● ELITE AGENT PORTAL | ACTIVE 2026</div>
         <h1>PRIME SOLUTIONS</h1>
-        <div style="margin-top: 25px;">
-            <a href="https://web-hub-code.github.io/PRIMESOLUTIONS/" style="color:var(--warning); text-decoration:none; font-weight:800; font-size:13px; border: 1px solid var(--warning); padding: 10px 25px; border-radius: 50px;">VISIT AGENCY PORTFOLIO</a>
-        </div>
+        <p style="margin-top: 15px; font-weight: 600; opacity: 0.8; font-size: 14px; letter-spacing: 2px;">FUTURE HOME IMPROVEMENT NETWORK</p>
     </header>
 
-    <div class="input-center">
+    <div class="input-hub">
         <input type="text" id="agN" placeholder="Agent Name..." onkeyup="sync()">
         <input type="text" id="cuN" placeholder="Customer Name..." onkeyup="sync()">
         <input type="text" id="ciN" placeholder="City Name..." onkeyup="sync()">
@@ -168,89 +158,84 @@
         <div class="script-panel">
             
             <div class="step-block">
-                <span class="step-tag">Step 1-3: Intro & Interest</span>
-                <div class="dialogue" id="d1">
-                    "Hi, this is <span class="hl ag">Agent</span> from <strong>Prime Solutions</strong>. How's your afternoon going in <span class="hl ci">City</span>? <br><br>
-                    I'm calling because you're eligible for a <strong>No-Cost Technical Audit</strong> under the <span class="hl">2026 Home Efficiency Program</span>. To confirm—are you the <strong>homeowner</strong>? <br><br>
-                    Excellent! Are we looking at <strong>5 to 10 windows</strong> or more? And do you prefer <strong>Sliding or Casement</strong>?"
+                <span class="step-tag">Phase 1: The Informational Hook</span>
+                <div class="dialogue">
+                    "Hi, this is <span class="hl ag">Agent</span> from <strong>Prime Solutions</strong>. We're reaching out to homeowners in <span class="hl ci">City</span>—not for a sales call, but to offer <strong>Free Estimates</strong> for your <span class="hl">future home improvements</span>. <br><br>
+                    Whether it's windows or roofing, we want to provide you with the <strong>best market rates and discounts</strong> so you have them on file whenever you're ready. Are you the <strong>homeowner</strong>?"
                 </div>
-                <span class="cx-hook">💡 Hook: We are currently in your neighborhood verifying local tax credits.</span>
-                <button class="copy-trigger" onclick="copy('d1')">COPY DIALOGUE</button>
+                <span class="benefit-hook">✅ CX GRAB: No sign-up, no cost—just market information for the future.</span>
             </div>
 
             <div class="step-block" style="border-left-color: var(--warning);">
-                <span class="step-tag">Step 4-6: Data Validation</span>
-                <div class="dialogue" id="d2">
-                    "To see the exact rebates for your street, what is your <strong>ZIP code</strong>? <br><br>
-                    And for the record, what is your <strong>Date of Birth</strong>? This ensures you get the <span class="hl">Senior, Veteran, or Homeowner discounts</span> available on our database."
+                <span class="step-tag">Phase 2: Qualification (Timeline)</span>
+                <div class="dialogue">
+                    "We understand you're not looking to do this right now, and that's perfectly fine! <br><br>
+                    Just so I can mark the right <strong>seasonal discount</strong> for you—<strong>how soon do you think you'll be ready to look into your windows?</strong> <br><br>
+                    Maybe in a <span class="hl">couple of months</span>, <strong>3 to 6 months</strong>, or perhaps <strong>8 months to a year</strong>?"
                 </div>
-                <span class="cx-hook">💡 Hook: Your DOB is required for the Federal Age-Based Incentive check.</span>
-                <button class="copy-trigger" onclick="copy('d2')">COPY DIALOGUE</button>
+                <div class="time-grid">
+                    <div class="time-btn">As Soon As Possible</div>
+                    <div class="time-btn">2-3 Months (Planning)</div>
+                    <div class="time-btn">6 Months (Future)</div>
+                    <div class="time-btn">1 Year (Long Term)</div>
+                </div>
             </div>
 
             <div class="step-block" style="border-left-color: var(--success);">
-                <span class="step-tag">Step 7-9: Credit & Plan</span>
-                <div class="dialogue" id="d3">
-                    "Are you planning this <strong>this month</strong>? For our <span class="hl">0% Interest & No-Money-Down</span> programs, what's your estimated credit range? <br><br>
-                    Lastly, any <strong>mortgage modifications</strong> in the last 2 years?"
+                <span class="step-tag">Phase 3: Market Discount Lock</span>
+                <div class="dialogue">
+                    "Our company offers the <strong>best market-beating prices</strong>. To ensure we have the correct data for your report, what is your <strong>ZIP code</strong> and <strong>Date of Birth</strong>? <br><br>
+                    This is strictly so we can apply the <span class="hl">Senior or Veteran incentives</span> to your future quote, keeping it 100% free of cost for you, <span class="hl cu">Customer</span>."
                 </div>
-                <span class="cx-hook">💡 Hook: We match the interest rate to your score to ensure zero out-of-pocket costs.</span>
-                <button class="copy-trigger" onclick="copy('d3')">COPY DIALOGUE</button>
+                <span class="benefit-hook">✅ CX GRAB: Market-best pricing locked in for 12 months.</span>
             </div>
 
             <div class="step-block" style="border-left-color: var(--danger);">
-                <span class="step-badge">Step 10-12: The 1-Year Lock</span>
-                <div class="dialogue" id="d4">
-                    "Perfect, <span class="hl cu">Customer</span>. Confirm your <strong>Full Address</strong> for the report. <br><br>
-                    Our specialist will visit to drop off your <strong>Free 12-Month Price-Locked Estimate</strong>. Do <strong>mornings or evenings</strong> work best for you and your spouse?"
+                <span class="step-tag">Phase 4: The Drop-Off</span>
+                <div class="dialogue">
+                    "I’ll have our specialist visit for just a moment to drop off this <strong>Free Informational Price-Guide</strong>. <br><br>
+                    This way, when you ARE ready, you’ll have the <strong>best discount already in your hands</strong>. Do mornings or afternoons work better for you and your spouse?"
                 </div>
-                <span class="cx-hook">💡 Hook: Even if you're not ready now, the price is locked for 365 days.</span>
-                <button class="copy-trigger" onclick="copy('d4')">COPY DIALOGUE</button>
             </div>
 
         </div>
 
         <div class="sidebar">
             <div class="tool-card">
-                <h4 style="color: var(--success); margin-bottom: 25px; font-size: 14px; letter-spacing: 1px;">🎯 CX GRAB REBUTTALS</h4>
+                <h4 style="color: var(--success); margin-bottom: 25px; font-size: 14px; letter-spacing: 1px;">🎯 CX TRUST REBUTTALS</h4>
                 
-                <div class="rebuttal-box">
-                    <strong>"Why do you need my DOB?"</strong>
-                    <p>"State incentives are higher for Seniors and Veterans. Your DOB validates you for the maximum possible credit."</p>
+                <div class="rebuttal-pill">
+                    <strong>"I'm not buying anything today."</strong>
+                    <p>"We're not selling anything today! This is strictly a <strong>Future Resource</strong> so you know the best market prices whenever you decide to move forward."</p>
                 </div>
 
-                <div class="rebuttal-box">
-                    <strong>"Why both spouses?"</strong>
-                    <p>"The report is a legal 12-month price-lock. We need both owners present to finalize the technical specs together."</p>
+                <div class="rebuttal-pill">
+                    <strong>"Is this a sales or sign-up call?"</strong>
+                    <p>"Not at all. There is <strong>no sign-up</strong> and no obligation. This is just a free informational service for homeowners in <span class="ci">City</span>."</p>
                 </div>
 
-                <div class="rebuttal-box">
-                    <strong>"Is this a sales call?"</strong>
-                    <p>"This is a Technical Assessment. We provide the data and the price lock; you decide when or if you want to use it."</p>
-                </div>
-
-                <div class="rebuttal-box">
-                    <strong>"I'm busy right now."</strong>
-                    <p>"I understand! This takes only 60 seconds to lock your rebate spot. Let's finish the last 2 questions."</p>
+                <div class="rebuttal-pill">
+                    <strong>"Why should I check your company?"</strong>
+                    <p>"We offer <strong>maximum discounts</strong> and the best market price. Checking us now saves you thousands in the future."</p>
                 </div>
             </div>
 
             <div class="tool-card" style="background: rgba(99, 102, 241, 0.05); border-color: var(--primary);">
-                <h4 style="color: var(--primary); font-size: 12px; margin-bottom: 15px;">PRO AGENT STATS</h4>
+                <h4 style="color: var(--primary); font-size: 12px; margin-bottom: 15px;">PRO AGENT TIPS</h4>
                 <p style="font-size: 13px; color: #94a3b8; line-height: 2;">
-                    • Current Lead Conv: <span style="color:white;">8.4%</span><br>
-                    • Top State: <span style="color:white;">Florida / Texas</span><br>
-                    • Best Hook: <span style="color:white;">"12-Month Price Lock"</span>
+                    • Emphasize <strong>"Free Informational Call"</strong>.<br>
+                    • Use <strong>"Future Planning"</strong> to relax CX.<br>
+                    • No pressure—focus on <strong>Market Benefits</strong>.
                 </p>
             </div>
 
-            <button class="action-btn" onclick="alert('Lead Logged into Prime Solutions CRM!')">Submit Final Lead</button>
+            <button class="submit-lead" onclick="alert('Future Lead Logged for Prime Solutions!')">Submit Future Lead</button>
         </div>
     </div>
 
     <footer>
-        <strong>PRIME SOLUTIONS AGENCY</strong> | Premium Web Development & Lead Systems © 2026<br>
-        Proprietary Script Architecture V6.0 | Engineered for High Conversions
+        <strong>PRIME SOLUTIONS AGENCY</strong> | Premium Lead Generation Systems © 2026<br>
+        Proprietary Script Architecture V10.0 | High-Conversion Informational Flow
     </footer>
 </div>
 
@@ -263,12 +248,6 @@
         document.querySelectorAll('.ag').forEach(e => e.innerText = ag);
         document.querySelectorAll('.cu').forEach(e => e.innerText = cu);
         document.querySelectorAll('.ci').forEach(e => e.innerText = ci);
-    }
-
-    function copy(id) {
-        let text = document.getElementById(id).innerText;
-        navigator.clipboard.writeText(text);
-        alert("Dialogue Copied to Clipboard!");
     }
 </script>
 
