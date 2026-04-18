@@ -1,7 +1,3 @@
-import os
-
-# Define the HTML content for the Premium Master Website
-html_content = """
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -303,9 +299,3 @@ html_content = """
 
 </body>
 </html>
-"""
-
-# Save the file
-with open("PrimeSolutions_Master_OS.html", "w") as f:
-    f.write(html_content)
-    
