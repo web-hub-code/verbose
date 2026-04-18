@@ -1,177 +1,173 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Script | Prime Solutions USA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <title>Prime Solutions | Elite Agent Script</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #3b82f6;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --dark-navy: #020617;
-            --card-bg: #0f172a;
-            --text-silver: #cbd5e1;
+            --primary-blue: #2563eb;
+            --success-green: #10b981;
+            --warning-gold: #fbbf24;
+            --dark-navy: #0f172a;
+            --text-light: #f8fafc;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--dark-navy);
-            color: #f8fafc;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #020617;
+            color: var(--text-light);
             margin: 0;
             padding: 20px;
         }
 
-        .master-wrapper {
+        .master-dashboard {
             max-width: 1300px;
             margin: 0 auto;
-            background: var(--card-bg);
-            border: 1px solid #1e293b;
+            background: var(--dark-navy);
             border-radius: 30px;
+            border: 2px solid #1e293b;
             overflow: hidden;
-            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.8);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
         }
 
+        /* Top Header */
         header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            padding: 50px 30px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            padding: 40px;
             text-align: center;
-            border-bottom: 5px solid var(--warning);
+            border-bottom: 5px solid var(--warning-gold);
         }
 
-        header h1 { margin: 0; font-size: 35px; font-weight: 800; letter-spacing: 2px; }
-        header p { color: var(--warning); font-size: 18px; font-weight: 600; margin-top: 10px; }
+        header h1 { margin: 0; font-size: 32px; letter-spacing: 3px; font-weight: 900; }
+        header p { color: var(--warning-gold); font-weight: 700; margin-top: 10px; font-size: 16px; }
 
-        .main-grid {
+        .layout-grid {
             display: grid;
             grid-template-columns: 1.8fr 1fr;
             gap: 2px;
             background: #1e293b;
         }
 
-        .panel { background: var(--card-bg); padding: 45px; }
+        .panel { background: var(--dark-navy); padding: 40px; }
 
-        /* Step Styling */
-        .step-container {
-            margin-bottom: 50px;
+        /* The 12-Step Script Styling */
+        .script-step {
+            margin-bottom: 45px;
             padding-left: 25px;
-            border-left: 6px solid var(--primary);
+            border-left: 6px solid var(--primary-blue);
             position: relative;
         }
 
-        .step-tag {
-            background: var(--primary);
+        .step-badge {
+            background: var(--primary-blue);
             color: white;
-            font-size: 12px;
-            font-weight: 900;
             padding: 5px 15px;
             border-radius: 8px;
-            display: inline-block;
-            margin-bottom: 15px;
+            font-size: 12px;
+            font-weight: 900;
             text-transform: uppercase;
+            margin-bottom: 15px;
+            display: inline-block;
         }
 
-        .dialogue-text {
-            font-size: 21px;
-            line-height: 1.7;
-            color: #f1f5f9;
+        .dialogue {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #e2e8f0;
         }
 
-        .highlight { color: var(--warning); font-weight: 800; text-decoration: underline; }
+        .highlight { color: var(--warning-gold); font-weight: 800; text-decoration: underline; }
 
-        /* Right Sidebar Features */
-        .feature-card {
-            background: #1e293b;
+        /* Sidebar Features */
+        .feature-box {
+            background: rgba(30, 41, 59, 0.5);
             border: 1px solid #334155;
             padding: 25px;
             border-radius: 20px;
             margin-bottom: 25px;
         }
 
-        .feature-card h4 { color: var(--success); margin: 0 0 15px 0; text-transform: uppercase; font-size: 15px; }
+        .feature-box h4 { margin: 0 0 15px 0; color: var(--success-green); font-size: 14px; text-transform: uppercase; }
 
-        .logic-hint {
-            font-family: 'JetBrains Mono', monospace;
+        .pro-tip {
             font-size: 13px;
-            color: #60a5fa;
-            background: rgba(96, 165, 250, 0.1);
-            padding: 10px;
-            border-radius: 8px;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.1);
+            padding: 12px;
+            border-radius: 10px;
             margin-top: 10px;
-            display: block;
+            border-left: 3px solid #38bdf8;
         }
 
-        .cta-button {
-            background: var(--success);
+        .submit-btn {
+            background: var(--success-green);
             color: white;
             width: 100%;
             padding: 20px;
+            border: none;
             border-radius: 15px;
             font-weight: 900;
             font-size: 18px;
-            border: none;
             cursor: pointer;
             text-transform: uppercase;
-            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
         }
 
-        .cta-button:hover { background: #059669; box-shadow: 0 0 20px var(--success); }
-
-        .disclaimer-footer {
-            background: #020617;
-            padding: 25px;
-            font-size: 13px;
+        .dnc-disclaimer {
+            font-size: 12px;
             color: #64748b;
-            border-top: 1px solid #1e293b;
+            margin-top: 20px;
+            text-align: justify;
             font-style: italic;
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
 
-<div class="master-wrapper">
+<div class="master-dashboard">
     <header>
-        <h1>ULTIMATE WINDOW CONVERSION SYSTEM</h1>
-        <p>COMPLETE 12-STEP PROFESSIONAL SCRIPT | PRIME SOLUTIONS USA</p>
+        <h1>ULTIMATE 12-STEP CONVERSION SYSTEM</h1>
+        <p>HI-IMPACT WINDOW SOLUTIONS | USA MARKET 2026</p>
     </header>
 
-    <div class="main-grid">
+    <div class="layout-grid">
         <div class="panel">
             
-            <div class="step-container">
-                <span class="step-tag">Step 1-3: Verification & Interest</span>
-                <div class="dialogue-text">
-                    "Hi, this is [Your Name] from the <strong>Project Assessment Center</strong>. How are you today? <br><br>
-                    We’re helping homeowners in your area secure <span class="highlight">2026 Home Improvement Rebates</span>. Are you the <strong>homeowner</strong> of the property? <br><br>
-                    Great! Roughly how many windows are you looking to estimate—around <strong>5 to 10</strong>, or more? And do you prefer <strong>Sliding, Casement, or Modern Aluminum</strong>?"
-                </div>
-                <span class="logic-hint">// Strategy: Use "Project Assessment Center" to sound official and non-salesy.</span>
-            </div>
-
-            <div class="step-container" style="border-left-color: var(--warning);">
-                <span class="step-tag">Step 4-6: Rebate Qualification</span>
-                <div class="dialogue-text">
-                    "To check the <strong>tax incentives</strong> in your area, may I have your <strong>ZIP code</strong>? <br><br>
-                    And for the state record, may I ask for your <strong>Date of Birth</strong>? This is purely to see which <span class="highlight">Senior or First-Time Buyer Rebates</span> you qualify for."
+            <div class="script-step">
+                <span class="step-badge">1-3: Ownership & Interest Hook</span>
+                <div class="dialogue">
+                    "Hi, this is [Name] calling from the <strong>Home Enhancement Group</strong>. How’s your day going? <br><br>
+                    We’re reaching out to homeowners to help secure their <span class="highlight">2026 Energy-Efficiency Rebates</span>. Are you the <strong>homeowner</strong> here? <br><br>
+                    Perfect. Roughly how many windows are you looking at—5 to 10 or more? And do you prefer <strong>Sliding or Casement</strong> styles?"
                 </div>
             </div>
 
-            <div class="step-container" style="border-left-color: var(--success);">
-                <span class="step-tag">Step 7-10: Financing & Credit Lock</span>
-                <div class="dialogue-text">
-                    "Excellent. Are you planning this for <strong>this month</strong> or just budgeting for the next 90 days? Have you seen other quotes yet? <br><br>
-                    To secure the <span class="highlight">0% Interest Financing</span>, roughly where does your credit score sit? Most homeowners check their banking app—I’ll hold for a second while you grab that range. <br><br>
-                    Lastly, any <strong>mortgage modifications</strong> in the past 2 years?"
+            <div class="script-step" style="border-left-color: var(--warning-gold);">
+                <span class="step-badge">4-6: The Data Verification</span>
+                <div class="dialogue">
+                    "To verify the local tax credits for your area, can I get your <strong>ZIP Code</strong>? <br><br>
+                    And for the state eligibility record, may I have your <strong>Date of Birth</strong>? This ensures you get the <span class="highlight">proper senior or homeowner discounts</span>."
                 </div>
-                <span class="logic-hint">// Strategy: "Banking App" check is the ultimate CX grab—it stops the customer from hanging up.</span>
+                <div class="pro-tip">💡 Tip: Use "Rebates" instead of "Prices" to keep them interested.</div>
             </div>
 
-            <div class="step-container" style="border-left-color: var(--danger);">
-                <span class="step-tag">Step 11-12: Property & Commitment</span>
-                <div class="dialogue-text">
-                    "Perfect. Can I get your <strong>Full Name and Full Address</strong> for the files? <br><br>
-                    You’re all set! Our specialist will bring your <span class="highlight">12-Month Price-Locked Estimate</span>. This is a 100% free technical report for your records. Do <strong>mornings or evenings</strong> work best for you and your spouse?"
+            <div class="script-step" style="border-left-color: var(--success-green);">
+                <span class="step-badge">7-10: Credit & Financing Logic</span>
+                <div class="dialogue">
+                    "Are you planning this for <strong>this month</strong> or just budgeting? Have you seen other quotes? <br><br>
+                    To qualify for our <span class="highlight">0% Interest & No-Down-Payment</span> plans, where does your credit score sit? Most people check their banking app—I’ll hold while you grab that range. <br><br>
+                    Lastly, any <strong>mortgage modifications</strong> in the last 2 years?"
+                </div>
+                <div class="pro-tip">💡 Tip: Holding the line while they check their app is the best way to prevent hang-ups.</div>
+            </div>
+
+            <div class="script-step" style="border-left-color: #f43f5e;">
+                <span class="step-badge">11-12: The Professional Close</span>
+                <div class="dialogue">
+                    "Great. Can I get your <strong>Full Name and Full Property Address</strong> for the records? <br><br>
+                    You’re all set! Our specialist will visit to provide a <strong>12-Month Price-Locked Technical Estimate</strong>. It's 100% free. Do <span class="highlight">mornings or evenings</span> work best for you and your spouse?"
                 </div>
             </div>
 
@@ -179,36 +175,28 @@
 
         <div class="panel" style="border-left: 1px solid #1e293b;">
             
-            <div class="feature-card">
-                <h4>💎 Why This Works (CX GRAB)</h4>
-                <p style="font-size: 14px; color: var(--text-silver); line-height: 1.6;">
-                    • <strong>The "Price Lock" Hook:</strong> Customers hate inflation. Telling them the price is locked for 1 year makes them feel safe.<br><br>
-                    • <strong>The "Spouse" Importance:</strong> Never book without both! It avoids cancellations.<br><br>
-                    • <strong>Energy Audit Tone:</strong> Speak like a technician, not a salesman.
+            <div class="feature-box">
+                <h4>🎯 Advanced CX Grabbers</h4>
+                <p style="font-size: 14px; line-height: 1.6;">
+                    • <strong>12-Month Price Lock:</strong> Tell them the price is "Frozen" to protect them from future inflation.<br><br>
+                    • <strong>Asset Protection:</strong> Explain that this technical report adds value to their home records.
                 </p>
             </div>
 
-            <div class="feature-card" style="border-color: var(--primary);">
-                <h4>📝 Objection Handling</h4>
-                <p style="font-size: 14px; color: var(--text-silver);">
-                    <strong>"I'm not interested"</strong><br>
-                    <em>"I understand! Most people aren't ready today, which is why we provide a 12-month quote. It's a free asset for your home's future value."</em>
+            <div class="feature-box" style="border-color: var(--primary-blue);">
+                <h4>📋 Objection Handling</h4>
+                <p style="font-size: 13px;">
+                    <strong>If "I don't have time":</strong><br>
+                    <em>"I totally understand! That’s why we give you the 12-month quote now—so you have the information ready whenever you are."</em>
                 </p>
             </div>
 
-            <div class="feature-card" style="background: rgba(16, 185, 129, 0.05); border-color: var(--success);">
-                <h4>🔒 Legal Disclaimer</h4>
-                <p style="font-size: 12px; line-height: 1.4; color: #94a3b8;">
-                    "Today's date is [Date]. By confirming, you agree to a callback from our specialist, even if you are on the <strong>Do Not Call List</strong>. This is for your requested future estimate."
-                </p>
-            </div>
+            <button class="submit-btn">Lock Final Appointment</button>
 
-            <button class="cta-button">Confirm & Submit Lead</button>
+            <div class="dnc-disclaimer">
+                <strong>OFFICIAL RECORD:</strong> "Today’s date is [Date]. By confirming, you agree to receive a callback from our specialist, even if you are on a <strong>Do Not Call List</strong>. This visit is for a free, no-obligation technical estimate."
+            </div>
         </div>
-    </div>
-
-    <div class="disclaimer-footer">
-        PROPERTY OF PRIME SOLUTIONS USA | 2026 INTERNAL TRAINING DOCUMENT | CONFIDENTIAL
     </div>
 </div>
 
