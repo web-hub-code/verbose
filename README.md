@@ -1,102 +1,208 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Elite Script & Rebuttal Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite 12-Step Master Script | Prime Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #4f46e5;
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
-            --dark: #0f172a;
-            --card: #1e293b;
+            --dark-navy: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
         }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--dark); color: #f8fafc; margin: 0; padding: 20px; }
-        .wrapper { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; }
-        
-        .panel { background: var(--card); border-radius: 24px; padding: 30px; border: 1px solid #334155; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        h2 { border-bottom: 2px solid var(--primary); padding-bottom: 10px; text-transform: uppercase; font-size: 20px; color: var(--primary); }
-        
-        .step { margin-bottom: 25px; padding-left: 15px; border-left: 4px solid var(--primary); }
-        .dialogue { font-size: 18px; line-height: 1.6; color: #e2e8f0; }
-        .highlight { color: var(--warning); font-weight: 700; }
 
-        /* Rebuttal Section Styling */
-        .rebuttal-card { background: #0f172a; border-radius: 12px; padding: 15px; margin-bottom: 15px; border: 1px solid #334155; }
-        .question { color: var(--danger); font-weight: 800; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; display: block; }
-        .answer { font-size: 15px; color: #cbd5e1; border-left: 2px solid var(--success); padding-left: 10px; display: block; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--dark-navy);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
 
-        .badge { background: var(--success); color: white; padding: 2px 8px; border-radius: 4px; font-size: 10px; vertical-align: middle; }
+        .master-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 30px;
+            border: 1px solid #334155;
+            overflow: hidden;
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.6);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #4f46e5 100%);
+            padding: 40px;
+            text-align: center;
+            border-bottom: 5px solid var(--warning);
+        }
+
+        header h1 { margin: 0; font-size: 32px; font-weight: 800; letter-spacing: 2px; }
+        header p { color: var(--warning); font-weight: 600; margin-top: 10px; }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 2px;
+            background: #334155;
+        }
+
+        .panel { background: var(--card-bg); padding: 40px; }
+
+        /* Step Logic */
+        .step-block {
+            margin-bottom: 40px;
+            padding-left: 20px;
+            border-left: 5px solid var(--primary);
+            position: relative;
+        }
+
+        .step-label {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .dialogue {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #e2e8f0;
+        }
+
+        .highlight { color: var(--warning); font-weight: 700; border-bottom: 1px dashed var(--warning); }
+
+        /* Sidebar Tools */
+        .tool-card {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 1px solid #334155;
+        }
+
+        .tool-card h4 { margin: 0 0 15px 0; color: var(--success); text-transform: uppercase; font-size: 14px; }
+
+        .rebuttal-box {
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 10px;
+            border: 1px solid #1e293b;
+        }
+
+        .rebuttal-q { color: var(--danger); font-weight: 800; font-size: 13px; display: block; margin-bottom: 5px; }
+        .rebuttal-a { color: #94a3b8; font-size: 14px; display: block; line-height: 1.4; border-left: 2px solid var(--success); padding-left: 10px; }
+
+        .disclaimer-area {
+            background: #020617;
+            padding: 25px;
+            font-size: 13px;
+            color: #64748b;
+            border-top: 1px solid #334155;
+            text-align: justify;
+        }
     </style>
 </head>
 <body>
 
-<div style="text-align: center; margin-bottom: 30px;">
-    <h1 style="margin:0; font-weight: 800; letter-spacing: 2px;">ULTIMATE 12-STEP MASTER SYSTEM</h1>
-    <p style="color: var(--warning); margin: 5px 0;">Agent Training & Live Call Support - 2026 Edition</p>
-</div>
+<div class="master-container">
+    <header>
+        <h1>ULTIMATE 12-STEP CONVERSION MACHINE</h1>
+        <p>USA HOME IMPROVEMENT | PROFESSIONAL AGENT DASHBOARD 2026</p>
+    </header>
 
-<div class="wrapper">
-    <div class="panel">
-        <h2>Professional Script Flow</h2>
-        
-        <div class="step">
-            <span class="highlight">Step 1-3: The Hook</span><br>
-            <div class="dialogue">"Hi, this is [Name] for the <span class="highlight">Energy Savings Project</span>. Are you the homeowner? Great! We're providing free 12-month price-locked estimates. How many windows are we looking at?"</div>
+    <div class="dashboard-grid">
+        <div class="panel">
+            
+            <div class="step-block">
+                <span class="step-label">Step 1-3: The Hook & Ownership</span>
+                <div class="dialogue">
+                    "Hi, this is [Name] regarding the <span class="highlight">Energy-Efficient Project</span> in your area. How are you today? <br><br>
+                    We’re offering free window estimates to help lower utility bills. Just to verify—are you the <strong>homeowner</strong>? <br><br>
+                    Perfect. Roughly how many windows are we looking at—around <strong>5 to 10</strong> or more? And do you prefer <strong>Sliding, Casement, or Aluminum</strong> styles?"
+                </div>
+            </div>
+
+            <div class="step-block" style="border-left-color: var(--warning);">
+                <span class="step-label">Step 4-6: Rebate Qualification</span>
+                <div class="dialogue">
+                    "To check the 2026 local rebate rates, what is your <strong>ZIP code</strong>? <br><br>
+                    And for the state eligibility record, may I have your <strong>Date of Birth</strong>? This ensures you receive the <span class="highlight">Senior or First-Time Buyer discounts</span>."
+                </div>
+            </div>
+
+            <div class="step-block" style="border-left-color: var(--success);">
+                <span class="step-label">Step 7-10: Financing & Credit Lock</span>
+                <div class="dialogue">
+                    "Are you planning this project <strong>this month</strong> or just budgeting? Have you received other estimates? <br><br>
+                    To qualify for our <span class="highlight">0% Down-Payment programs</span>, what is your credit score range? Most homeowners check their banking app—I’ll hold for a second while you grab that. <br><br>
+                    Lastly, any <strong>mortgage modifications</strong> in the last 2 years?"
+                </div>
+            </div>
+
+            <div class="step-block" style="border-left-color: var(--danger);">
+                <span class="step-label">Step 11-12: The Final Closing</span>
+                <div class="dialogue">
+                    "Great! Can I get your <strong>Full Name and Full Address</strong> for the specialist? <br><br>
+                    Our expert will visit to drop off your <strong>12-Month Price-Locked Technical Report</strong>. It's 100% free. Do <span class="highlight">mornings or evenings</span> work best for you and your spouse?"
+                </div>
+            </div>
+
         </div>
 
-        <div class="step">
-            <span class="highlight">Step 4-6: Data Grab</span><br>
-            <div class="dialogue">"To verify local rebates, what is your <strong>ZIP code</strong> and <strong>Date of Birth</strong>? This ensures you get the proper state incentives."</div>
-        </div>
+        <div class="panel" style="border-left: 1px solid #334155;">
+            
+            <div class="tool-card">
+                <h4>🚀 Professional Rebuttals (The "Why")</h4>
+                
+                <div class="rebuttal-box">
+                    <span class="rebuttal-q">Why ZIP Code?</span>
+                    <span class="rebuttal-a">"Utility incentives vary by county; your ZIP ensures we calculate the exact credits for your street."</span>
+                </div>
 
-        <div class="step">
-            <span class="highlight">Step 7-10: Financing</span><br>
-            <div class="dialogue">"Are you looking to start this month or next? To qualify for <strong>0% interest</strong>, what is your credit range? I'll hold while you check your app."</div>
-        </div>
+                <div class="rebuttal-box">
+                    <span class="rebuttal-q">Why Credit Score?</span>
+                    <span class="rebuttal-a">"We use it to match you with 0% interest lenders so you pay nothing out of pocket today."</span>
+                </div>
 
-        <div class="step">
-            <span class="highlight">Step 11-12: The Close</span><br>
-            <div class="dialogue">"Perfect! Just confirm your name and address. Do mornings or evenings work for the specialist to drop off your report?"</div>
-        </div>
+                <div class="rebuttal-box">
+                    <span class="rebuttal-q">Why DOB?</span>
+                    <span class="rebuttal-a">"To verify eligibility for state-specific Senior (65+) or Military discounts."</span>
+                </div>
 
-        <div style="margin-top: 30px; font-size: 12px; color: #64748b;">
-            <strong>DNC Disclaimer:</strong> "By confirming, you agree to a callback even if you're on a DNC list. This is for a free estimate."
+                <div class="rebuttal-box">
+                    <span class="rebuttal-q">Why both spouses?</span>
+                    <span class="rebuttal-a">"The estimate is a legal 12-month price guarantee; we need both owners to receive the data together."</span>
+                </div>
+            </div>
+
+            <div class="tool-card" style="border-color: var(--primary);">
+                <h4>💎 Why This Grabs the CX</h4>
+                <p style="font-size: 13px; line-height: 1.6; color: #cbd5e1;">
+                    • <strong>12-Month Price Lock:</strong> Inflation protection hook.<br>
+                    • <strong>Banking App Engagement:</strong> Prevents call drops.<br>
+                    • <strong>Consultative Tone:</strong> Technician, not salesman.
+                </p>
+            </div>
+
+            <button style="background:var(--success); color:white; width:100%; border:none; padding:18px; border-radius:12px; font-weight:800; cursor:pointer; text-transform:uppercase;">
+                Submit Certified Lead
+            </button>
         </div>
     </div>
 
-    <div class="panel" style="border-top: 5px solid var(--danger);">
-        <h2>Live Rebuttal Engine <span class="badge">Advanced</span></h2>
-        
-        <div class="rebuttal-card">
-            <span class="question">"Why do you need my ZIP code?"</span>
-            <span class="answer">"Great question! Rebates and utility incentives vary by county. Your ZIP code tells our system exactly which <span class="highlight">local government credits</span> are available for your specific street."</span>
-        </div>
-
-        <div class="rebuttal-card">
-            <span class="question">"Why do you need my Credit Score?"</span>
-            <span class="answer">"We ask because we have <span class="highlight">0% Down-Payment programs</span>. Knowing your range helps me match you with the right lender so you don't have to pay anything out of pocket today."</span>
-        </div>
-
-        <div class="rebuttal-card">
-            <span class="question">"Why do you need my DOB?"</span>
-            <span class="answer">"This is strictly for <span class="highlight">Senior & Military Discounts</span>. We want to make sure you're getting the maximum age-based incentive allowed by the state."</span>
-        </div>
-
-        <div class="rebuttal-card">
-            <span class="question">"I'm not ready to buy yet."</span>
-            <span class="answer">"I completely understand. That’s why we provide a <span class="highlight">12-Month Price Lock</span>. You get the expert info today, and you're protected against price hikes for a full year. No pressure at all."</span>
-        </div>
-
-        <div class="rebuttal-card">
-            <span class="question">"Why do both spouses need to be there?"</span>
-            <span class="answer">"Since this estimate is a <span class="highlight">legal price-lock for 1 year</span>, the specialist needs to provide the info to both homeowners so all your questions are answered at once. It only takes 20 minutes!"</span>
-        </div>
-
-        <div style="background: var(--primary); padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center;">
-            <strong style="font-size: 14px;">PRO TIP: Never Argue. Always Agree, then Explain.</strong>
-        </div>
+    <div class="disclaimer-area">
+        <strong>FINAL LEGAL DISCLAIMER:</strong> "Today’s date is [Date]. A specialist will call you shortly to finalize. By confirming, you agree to this call even if you are on a <strong>Do Not Call List</strong>. This is for your requested free technical estimate."
     </div>
 </div>
 
